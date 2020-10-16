@@ -6,12 +6,12 @@ const secureRoute = require('../lib/secureRoute')
 
 router.route('/plants')
   .get(plants.index)
-  .post(plants.create)
+  .post(secureRoute, plants.create)
 router
   .route('/surfspots/:id')
   .get(plants.show)
-  .put(secureRoute, plants.edit)
-  .delete(secureRoute, plants.delete)
+  // .put(secureRoute, plants.edit)
+  // .delete(secureRoute, plants.delete)
 
 // LOG RELATED
 router.route('/register')

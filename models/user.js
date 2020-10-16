@@ -1,16 +1,12 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
-const achievedSurfSpotSchema = new mongoose.Schema({
-  spot: { type: mongoose.Schema.ObjectId, ref: 'SurfSpot', required: true }
-})
 
 const userSchema = new mongoose.Schema({
-  username: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  profileImage: { type: String, required: true },
-  achievedSurfSpot: [achievedSurfSpotSchema]
+  password: { type: String, required: true }
 })
 
 // ! Add created in virtual field (not in db)

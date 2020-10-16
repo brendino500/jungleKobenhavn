@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const plantSchema = new mongoose.Model({
+const plantSchema = new mongoose.Schema({
   name: { type: String, require: true },
   image: { type: String, require: true },
   price: { type: Number, require: true },
@@ -12,7 +12,8 @@ const plantSchema = new mongoose.Model({
 plantSchema
   .virtual('usersCompleted', {
     ref: 'User',
-    localField: '_id'
+    localField: '_id',
+    foreignField: 'user'
   })
 
 plantSchema.plugin(require('mongoose-unique-validator'))
