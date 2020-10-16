@@ -13,7 +13,7 @@ async function userIndex(req, res, next) {
 
 async function userShow(req, res, next) {
   try {
-    const user = await User.findById(req.params.id).populate('achievedSurfSpot')
+    const user = await User.findById(req.params.id)
     if (!user) throw new Error(notFound)
     res.status(200).json(user)
   } catch (err) {

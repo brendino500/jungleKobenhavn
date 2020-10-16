@@ -6,7 +6,7 @@ const { unauthorized } = require('../lib/errorMessage')
 async function register(req, res, next) {
   try {
     const user = await User.create(req.body)
-    res.status(201).json({ message: `¡Hola! ${user.username}` })
+    res.status(201).json({ message: `¡Hola! ${user.firstName}` })
   } catch (err) {
     next(err)
   }
@@ -24,7 +24,7 @@ async function login(req, res, next) {
       { expiresIn: '7 days' }
     )
     res.status(202).json({
-      message: `You've logged in ${user.firstname}`,
+      message: `You've logged in ${user.firstName}`,
       token
     })
   } catch (err) {

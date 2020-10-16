@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const plantSchema = new mongoose.Schema({
-  name: { type: String, require: true },
-  image: { type: String, require: true },
-  price: { type: Number, require: true },
-  description: { type: String, require: true },
-  potSize: { type: Number, require: true },
-  approxHeight: { type: Number, require: true }
+  name: { type: String, required: true },
+  image: { type: String, required: true },
+  price: { type: Number, required: true },
+  description: { type: String, required: true },
+  potSize: { type: Number, required: true },
+  approxHeight: { type: Number, required: true }
 })
 
 plantSchema

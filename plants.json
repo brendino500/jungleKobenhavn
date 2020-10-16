@@ -1,0 +1,24 @@
+{
+	"name": "",
+	"image": "",
+	"price": ,
+	"description": "",
+	"potSize": ,
+	"approxHeight": 
+}
+
+
+  {
+    "model": "plants.plant",
+    "pk": 22,
+    "fields": {
+      "name": "Calathea Orbifolia",
+      "image": "https://i.ibb.co/P57RyhL/calathea-orbifa.png",
+      "price": 15,
+      "description": "Calathea orbifolia is part of the Marantaceae family and is native to Bolivia. It has large rounded leaves with silver and green stripes. They can grow up to a metre in height and leaves 30cm across.",
+      "potDiameter": 12,
+      "approxHeight": 30,
+      "basket": 2
+    }
+  }
+  ]

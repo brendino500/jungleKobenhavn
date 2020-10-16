@@ -8,10 +8,10 @@ router.route('/plants')
   .get(plants.index)
   .post(secureRoute, plants.create)
 router
-  .route('/surfspots/:id')
+  .route('/plants/:id')
   .get(plants.show)
-  // .put(secureRoute, plants.edit)
-  // .delete(secureRoute, plants.delete)
+  .put(secureRoute, plants.edit)
+  .delete(secureRoute, plants.delete)
 
 // LOG RELATED
 router.route('/register')

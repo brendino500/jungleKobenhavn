@@ -11,8 +11,8 @@ const userSchema = new mongoose.Schema({
 
 // ! Add created in virtual field (not in db)
 userSchema
-  .virtual('createdSpots', {
-    ref: 'SurfSpot',
+  .virtual('createdPlants', {
+    ref: 'Plant',
     localField: '_id',
     foreignField: 'user'
   })
