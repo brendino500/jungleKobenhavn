@@ -7,6 +7,13 @@ module.exports = [
     passwordConfirmation: 'pass'
   },
   {
+    firstName: 'Gustaof',
+    lastName: 'Ingemar',
+    email: 'gus@email',
+    password: 'pass',
+    passwordConfirmation: 'pass'
+  },
+  {
     firstName: 'Kawahara',
     lastName: 'Tamotsu',
     email: 'kawahara',
