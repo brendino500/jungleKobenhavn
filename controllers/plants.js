@@ -34,10 +34,10 @@ async function plantShow(req, res, next) {
 async function plantEdit(req, res, next) {
   console.log('params', req.params)
   try {
-    const spot = await Plant.findById(req.params.id)
-    Object.assign(spot, req.body)
-    await spot.save()
-    res.status(201).json(spot)
+    const plant = await Plant.findById(req.params.id)
+    Object.assign(plant, req.body)
+    await plant.save()
+    res.status(201).json(plant)
   } catch (err) {
     next(err)
   }
@@ -45,8 +45,8 @@ async function plantEdit(req, res, next) {
 
 async function plantDelete(req, res, next) {
   try {
-    const surfSpot = await Plant.findByIdAndDelete(req.params.id)
-    if (!surfSpot) throw new Error(notFound)
+    const plant = await Plant.findByIdAndDelete(req.params.id)
+    if (!plant) throw new Error(notFound)
     res.sendStatus(204)
   } catch (err) {
     next(err)

@@ -16,8 +16,7 @@ mongoose.connect(
     }
 
     try {
-
-      await db.dropDatabase()
+      await db.connection.dropDatabase()
       console.log('Database dropped 👋')
 
       const users = await User.create(userData)
