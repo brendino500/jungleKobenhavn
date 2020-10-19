@@ -1,15 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
+
+import { Link } from 'react-router-dom'
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
+import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Divider, InputBase, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -123,6 +117,10 @@ const useStyles = makeStyles((theme: Theme) =>
         display: 'none',
       },
     },
+    basket: {
+      position: 'absolute',
+      bottom: 0
+    }
   }),
 );
 
@@ -191,11 +189,14 @@ export default function Navbar() {
           </IconButton>
         </div>
         <List>
+          <Link to='/plants'>
           <ListItem button>
             Plants
           </ListItem>
+          </Link>
           <Divider />
-          <ListItem button>
+          <ListItem
+            button>
             Basket
           </ListItem>
         </List>
@@ -207,7 +208,7 @@ export default function Navbar() {
       >
         <div className={classes.drawerHeader} />
         <Typography paragraph>
-Jungle København
+          Jungle København
         </Typography>
       </main>
     </div>
