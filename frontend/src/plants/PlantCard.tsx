@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -39,6 +40,9 @@ const useStyles = makeStyles({
   paper: {
     backgroundColor: "#2a5034",
   },
+  link: {
+    textDecoration: "none",
+  },
 });
 
 export default function PlantCard(props: PlantType) {
@@ -47,13 +51,15 @@ export default function PlantCard(props: PlantType) {
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia className={classes.media} image={props.image} />
-        <CardContent className={classes.paper}>
-          <Typography className={classes.text} gutterBottom>
-            {props.name}
-          </Typography>
-          <Typography className={classes.price}>£{props.price}.00</Typography>
-        </CardContent>
+        <a href={`/plants/${props._id}`} className={classes.link}>
+          <CardMedia className={classes.media} image={props.image} />
+          <CardContent className={classes.paper}>
+            <Typography className={classes.text} gutterBottom>
+              {props.name}
+            </Typography>
+            <Typography className={classes.price}>£{props.price}.00</Typography>
+          </CardContent>
+        </a>
       </CardActionArea>
       <CardActions className={classes.paper}>
         <Grid container direction="row" justify="center" alignItems="center">
