@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
   media: {
     height: 250,
-    width: 250,
+    maxWidth: 300,
   },
   button: {
     color: "#f2e5c6",
@@ -28,13 +28,13 @@ const useStyles = makeStyles({
   },
   text: {
     color: "#f2e5c6",
-    fontFamily: "Rubik",
-    fontWeight: "bold",
-    fontSize: 13,
+    fontFamily: "Old Standard TT",
+    fontSize: 20,
+    width: 250,
   },
   price: {
     color: "#f2e5c6",
-    fontFamily: "Old Standard TT",
+    fontFamily: "Rubik",
   },
   paper: {
     backgroundColor: "#2a5034",
@@ -56,16 +56,8 @@ export default function PlantCard(props: PlantType) {
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.paper}>
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="center"
-        >
-          <Button className={classes.button} size="small">
-            View
-          </Button>
-          <Button className={classes.button} size="small">
+        <Grid container direction="row" justify="center" alignItems="center">
+          <Button fullWidth className={classes.button} size="small">
             Add to Cart
           </Button>
         </Grid>
