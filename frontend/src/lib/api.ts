@@ -4,10 +4,10 @@ const baseUrl = '/api'
 
 
 export const getAllPlants = () => {
-  return axios.get(`${baseUrl}/surfspots`)
+  return axios.get(`${baseUrl}/plants`)
 }
 export const showSinglePlant = (id: Number) => {
-  return axios.get(`${baseUrl}/surfspots/${id}`)
+  return axios.get(`${baseUrl}/plants/${id}`)
 }
 
 

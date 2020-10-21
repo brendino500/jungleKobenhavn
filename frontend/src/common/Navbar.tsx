@@ -207,9 +207,9 @@ export default function Navbar() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
+        {/* <Typography paragraph>
           Jungle København
-        </Typography>
+        </Typography> */}
       </main>
     </div>
   );
