@@ -16,16 +16,18 @@ export default function PlantIndividual(props: any) {
 
   const getData = async () => {
     const res = await showSinglePlant(props.match.params.id)
+    console.log(res)
     setData(res.data)
+    console.log()
   }
 
   React.useEffect(() => {
     getData()
-  }, [])
+  })
 
   return (
     <Container>
-      
+
     </Container>
   )
 }
