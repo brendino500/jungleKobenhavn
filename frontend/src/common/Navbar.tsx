@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerPaper: {
       width: drawerWidth,
+      backgroundColor: "#9c698e",
     },
     drawerHeader: {
       display: "flex",
@@ -67,6 +68,12 @@ const useStyles = makeStyles((theme: Theme) =>
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
       justifyContent: "flex-end",
+    },
+    drawerText: {
+      color: "#f2e5c6",
+      fontFamily: "Rubik",
+      fontSize: 20,
+      letterSpacing: 2,
     },
     content: {
       flexGrow: 1,
@@ -151,6 +158,12 @@ const useStyles = makeStyles((theme: Theme) =>
       letterSpacing: 2,
       textTransform: "uppercase",
     },
+    menuIcon: {
+      color: "#f2e5c6",
+    },
+    link: {
+      textDecoration: "none",
+    },
   })
 );
 
@@ -188,11 +201,14 @@ export default function Navbar() {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon className={classes.menuIcon} />
           </IconButton>
-          <Typography className={classes.title} noWrap>
-            Jungle København
-          </Typography>
+          <Link to={`/`} className={classes.link}>
+            <Typography className={classes.title} noWrap>
+              Jungle København
+            </Typography>
+          </Link>
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -228,11 +244,17 @@ export default function Navbar() {
           </IconButton>
         </div>
         <List>
-          <Link to="/plants">
-            <ListItem button>Plants</ListItem>
-          </Link>
+          <a href={`/plants`} className={classes.link}>
+            <ListItem className={classes.drawerText} button>
+              Plants
+            </ListItem>
+          </a>
           <Divider />
-          <ListItem button>Basket</ListItem>
+          <a href={`/basket`} className={classes.link}>
+            <ListItem className={classes.drawerText} button>
+              Basket
+            </ListItem>
+          </a>
         </List>
       </Drawer>
       <main

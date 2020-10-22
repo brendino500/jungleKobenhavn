@@ -15,10 +15,12 @@ export default function PlantIndex() {
     title: {
       fontFamily: "Old Standard TT",
       fontSize: 35,
-      letterSpacing: 3,
+      letterSpacing: 9,
       textTransform: "uppercase",
       textAlign: "center",
-      color: "#fff9ed",
+      color: "#f2e5c6",
+      marginTop: "6%",
+      marginBottom: "6%",
     },
   });
 
