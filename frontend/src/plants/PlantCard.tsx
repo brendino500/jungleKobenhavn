@@ -26,6 +26,7 @@ const useStyles = makeStyles({
     color: "#f2e5c6",
     fontFamily: "Rubik",
     fontWeight: "bold",
+    marginBottom: "-10%",
   },
   text: {
     color: "#f2e5c6",
@@ -39,6 +40,7 @@ const useStyles = makeStyles({
   },
   paper: {
     backgroundColor: "#2a5034",
+    height: 80,
   },
   link: {
     textDecoration: "none",
