@@ -3,7 +3,6 @@ import Home from "./common/Home";
 import Navbar from "./common/Navbar";
 import PlantIndividual from "./plants/PlantIndividual";
 import PlantIndex from "./plants/PlantIndex";
-import "./styles/main.scss";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 

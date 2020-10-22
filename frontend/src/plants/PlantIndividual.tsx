@@ -3,11 +3,12 @@ import { showSinglePlant } from "../lib/api";
 // import { PlantType } from "./PlantType";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid, Typography, Button } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
     margin: 10,
+    backgroundColor: "#25462e",
   },
   image: {
     height: 400,
@@ -18,15 +19,31 @@ const useStyles = makeStyles({
     letterSpacing: 3,
     fontWeight: "bold",
     textTransform: "uppercase",
+    width: 300,
   },
   text: {
     fontFamily: "Rubik",
-    fontSize: 12,
+    fontSize: 14,
+    width: 300,
   },
   price: {
     fontFamily: "Old Standard TT",
     fontWeight: "bold",
     letterSpacing: 3,
+  },
+  button: {
+    color: "#f2e5c6",
+    fontFamily: "Old Standard TT",
+    backgroundColor: "#9c698e",
+    fontWeight: "bold",
+    letterSpacing: 2,
+  },
+  numbers: {
+    fontFamily: "Rubik",
+    fontSize: 12,
+  },
+  plantInfo: {
+    marginLeft: 50,
   },
 });
 
@@ -45,42 +62,36 @@ export default function PlantIndividual(props: any) {
 
   if (!data) return null;
   return (
-    <Container>
+    <Container maxWidth="md">
       <Grid
         container
         direction="row"
-        justify="space-between"
+        justify="flex-start"
         alignItems="flex-start"
       >
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="flex-start"
-        >
-          <img src={data.image} alt={data.name} className={classes.image} />
-        </Grid>
-
-        <Grid
-          container
-          direction="column"
-          justify="space-between"
-          alignItems="flex-start"
-        >
+        <img src={data.image} alt={data.name} className={classes.image} />
+        <div className={classes.plantInfo}>
           <Typography className={classes.plantName}>{data.name}</Typography>
           <br />
           <Typography className={classes.price}>£{data.price}.00</Typography>
           <br />
           <Typography className={classes.text}>{data.description}</Typography>
           <br />
-          <Typography className={classes.text}>
+          <Typography className={classes.numbers}>
             Pot Size: {data.potSize}cm
           </Typography>
-          <Typography className={classes.text}>
+          <Typography className={classes.numbers}>
             Approx Height: {data.approxHeight}cm
           </Typography>
-        </Grid>
-        {/* </Grid> */}
+          <br />
+          <Button
+            className={classes.button}
+            variant="contained"
+            href={`/basket`}
+          >
+            Add to Basket
+          </Button>
+        </div>
       </Grid>
     </Container>
   );
