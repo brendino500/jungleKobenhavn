@@ -255,6 +255,11 @@ export default function Navbar() {
               Plants
             </ListItem>
           </a>
+          <a href={`/contact`} className={classes.link}>
+            <ListItem className={classes.drawerText} button>
+              Contact
+            </ListItem>
+          </a>
           <Divider />
           <a href={`/basket`} className={classes.link}>
             <ListItem className={classes.drawerText} button>
