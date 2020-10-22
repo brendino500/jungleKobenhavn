@@ -1,10 +1,38 @@
-import { render } from '@testing-library/react'
-import React from 'react'
+import React from "react";
+import image from "../assets/zzplant.jpg";
+
+import { makeStyles } from "@material-ui/core/styles";
+import { Container, Typography } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  "@global": {
+    body: {
+      backgroundImage: `url(${image})`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center center",
+      backgroundSize: "cover",
+      backgroundAttachment: "fixed",
+      height: "100%",
+    },
+  },
+  title: {
+    fontFamily: "Playfair Display",
+    fontWeight: "bold",
+    letterSpacing: 9,
+    fontSize: 50,
+    marginTop: "10%",
+    color: "#1A3400",
+  },
+});
 
 export default function Home() {
+  const classes = useStyles();
 
-    return(
-      <h1> HOME PAGE</h1>
-    )
-
+  return (
+    <Container>
+      <Typography className={classes.title}>
+        Jungle {<br />}København
+      </Typography>
+    </Container>
+  );
 }
