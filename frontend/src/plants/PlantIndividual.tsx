@@ -32,9 +32,9 @@ const useStyles = makeStyles({
     letterSpacing: 3,
   },
   button: {
-    color: "#f2e5c6",
+    color: "#C1BFBB",
     fontFamily: "Old Standard TT",
-    backgroundColor: "#9c698e",
+    backgroundColor: "#365902",
     fontWeight: "bold",
     letterSpacing: 2,
   },

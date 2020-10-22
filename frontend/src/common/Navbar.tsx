@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerPaper: {
       width: drawerWidth,
-      backgroundColor: "#9c698e",
+      backgroundColor: "#365902",
     },
     drawerHeader: {
       display: "flex",
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "flex-end",
     },
     drawerText: {
-      color: "#f2e5c6",
+      color: "#C1BFBB",
       fontFamily: "Rubik",
       fontSize: 20,
       letterSpacing: 2,
@@ -114,12 +114,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      color: "#f2e5c6",
+      color: "#1A3400",
     },
     searchText: {
       fontFamily: "Old Standard TT",
       letterSpacing: 1,
       fontWeight: "bold",
+      color: "#1A3400",
     },
     inputRoot: {
       color: "inherit",
@@ -153,13 +154,13 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       fontFamily: "Old Standard TT",
       fontSize: 17,
-      color: "#f2e5c6",
+      color: "#1A3400",
       fontWeight: "bold",
       letterSpacing: 2,
       textTransform: "uppercase",
     },
     menuIcon: {
-      color: "#f2e5c6",
+      color: "#1A3400",
     },
     link: {
       textDecoration: "none",
@@ -189,7 +190,7 @@ export default function Navbar() {
           [classes.appBarShift]: open,
         })}
         style={{
-          backgroundColor: "#25462e",
+          backgroundColor: "#C1BFBB",
           boxShadow: "0px 0px 0px 0px",
         }}
       >
@@ -244,6 +245,11 @@ export default function Navbar() {
           </IconButton>
         </div>
         <List>
+          <a href={`/`} className={classes.link}>
+            <ListItem className={classes.drawerText} button>
+              Home
+            </ListItem>
+          </a>
           <a href={`/plants`} className={classes.link}>
             <ListItem className={classes.drawerText} button>
               Plants

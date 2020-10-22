@@ -23,23 +23,23 @@ const useStyles = makeStyles({
     maxWidth: 300,
   },
   button: {
-    color: "#f2e5c6",
+    color: "#365902",
     fontFamily: "Rubik",
     fontWeight: "bold",
     marginBottom: "-10%",
   },
   text: {
-    color: "#f2e5c6",
+    color: "#1A3400",
     fontFamily: "Old Standard TT",
     fontSize: 20,
     width: 250,
   },
   price: {
-    color: "#f2e5c6",
+    color: "#1A3400",
     fontFamily: "Rubik",
   },
   paper: {
-    backgroundColor: "#2a5034",
+    backgroundColor: "#EBE8E5",
     height: 80,
   },
   link: {

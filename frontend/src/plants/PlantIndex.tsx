@@ -10,7 +10,7 @@ export default function PlantIndex() {
   const useStyles = makeStyles({
     root: {
       padding: 10,
-      backgroundColor: "#25462e",
+      backgroundColor: "#EBE8E5",
     },
     title: {
       fontFamily: "Old Standard TT",
@@ -18,7 +18,7 @@ export default function PlantIndex() {
       letterSpacing: 9,
       textTransform: "uppercase",
       textAlign: "center",
-      color: "#f2e5c6",
+      color: "#1A3400",
       marginTop: "6%",
       marginBottom: "6%",
     },
