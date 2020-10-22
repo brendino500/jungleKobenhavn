@@ -6,11 +6,12 @@ import ReactMapGL, { NavigationControl } from "react-map-gl";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
 
-export default function LocationMap() {
+export default function KobenhavnMap() {
   const viewport = {
-    latitide: 55,
+    latitide: 51,
     longitude: 12,
-    zoom: 9,
+    // center: [12, 51],
+    zoom: 4,
     bearing: 0,
     pitch: 0,
   };
@@ -27,16 +28,16 @@ export default function LocationMap() {
     <MapGl
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPTOK}
-      height={"100vh"}
-      width={"100vh"}
+      height={"75vh"}
+      width={"75vh"}
       mapStyle="mapbox://styles/heybt/ckgl0qw1j0r1p19qq7u59kla9"
       // onViewportChange={(viewport) => setState({ viewport })}
-      zoom={viewport.zoom}
-      scrollZoom={true}
+      // zoom={viewport.zoom}
+      // scrollZoom={false}
     >
-      <div style={{ position: "absolute", right: 30, bottom: 30 }}>
-        <NavigationControl />
-      </div>
+      {/* <div style={{ position: "absolute", right: 30, bottom: 30 }}> */}
+        {/* <NavigationControl />
+      </div> */}
     </MapGl>
   );
 }

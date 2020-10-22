@@ -1,6 +1,6 @@
 import React from "react";
-import ContactInformation from "./ContactInformation";
-import LocationMap from "./LocationMap";
+import KobenhavenAddress from "./KobenhavenAddress";
+import KobenhavnMap from "./KobenhavnMap";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
@@ -32,9 +32,9 @@ export default function Contact() {
         justify="space-between"
         alignItems="center"
       >
-        <ContactInformation />
+        <KobenhavenAddress />
 
-        <LocationMap />
+        <KobenhavnMap />
       </Grid>
     </Container>
   );

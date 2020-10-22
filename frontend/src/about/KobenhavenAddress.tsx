@@ -3,7 +3,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
 
-export default function ContactInformation() {
+export default function KobenhavnAddress() {
   const useStyles = makeStyles({
     container: {
       margin: 10,
@@ -29,7 +29,7 @@ export default function ContactInformation() {
     <Container className={classes.container} maxWidth="lg">
       <Typography className={classes.title}>Location:</Typography>
       <Typography className={classes.text}>
-        Nørre Fraimagsgade 51 {<br />}1364 København {<br />} Denmark
+        Fælledvej 14-18 {<br />}2200 København {<br />} Denmark
       </Typography>
     </Container>
   );
