@@ -1,6 +1,5 @@
 import React from "react";
 import { showSinglePlant } from "../lib/api";
-// import { PlantType } from "./PlantType";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Grid, Typography, Button } from "@material-ui/core";
@@ -14,32 +13,32 @@ const useStyles = makeStyles({
     height: 400,
   },
   plantName: {
-    fontFamily: "Old Standard TT",
+    fontFamily: "Playfair Display",
     fontSize: 20,
-    letterSpacing: 3,
+    letterSpacing: 2,
     fontWeight: "bold",
     textTransform: "uppercase",
     width: 300,
   },
   text: {
-    fontFamily: "Rubik",
+    fontFamily: "Open Sans",
     fontSize: 14,
     width: 300,
   },
   price: {
-    fontFamily: "Old Standard TT",
+    fontFamily: "Playfair Display",
     fontWeight: "bold",
-    letterSpacing: 3,
+    letterSpacing: 2,
   },
   button: {
-    color: "#C1BFBB",
-    fontFamily: "Old Standard TT",
+    color: "#EBE8E5",
+    fontFamily: "Playfair Display",
     backgroundColor: "#365902",
     fontWeight: "bold",
     letterSpacing: 2,
   },
   numbers: {
-    fontFamily: "Rubik",
+    fontFamily: "Open Sans",
     fontSize: 12,
   },
   plantInfo: {

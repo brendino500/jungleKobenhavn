@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerText: {
       color: "#C1BFBB",
-      fontFamily: "Rubik",
+      fontFamily: "Open Sans",
       fontSize: 20,
       letterSpacing: 2,
     },
@@ -117,7 +117,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#1A3400",
     },
     searchText: {
-      fontFamily: "Old Standard TT",
+      fontFamily: "Playfair Display",
       letterSpacing: 1,
       fontWeight: "bold",
       color: "#1A3400",
@@ -152,7 +152,7 @@ const useStyles = makeStyles((theme: Theme) =>
       bottom: 0,
     },
     title: {
-      fontFamily: "Old Standard TT",
+      fontFamily: "Playfair Display",
       fontSize: 17,
       color: "#1A3400",
       fontWeight: "bold",

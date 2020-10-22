@@ -24,19 +24,21 @@ const useStyles = makeStyles({
   },
   button: {
     color: "#365902",
-    fontFamily: "Rubik",
+    fontFamily: "Open Sans",
     fontWeight: "bold",
     marginBottom: "-10%",
+    letterSpacing: 1,
   },
   text: {
     color: "#1A3400",
-    fontFamily: "Old Standard TT",
+    fontFamily: "Playfair Display",
     fontSize: 20,
     width: 250,
   },
   price: {
     color: "#1A3400",
-    fontFamily: "Rubik",
+    fontFamily: "Playfair Display",
+    fontWeight: "bold",
   },
   paper: {
     backgroundColor: "#EBE8E5",
@@ -66,7 +68,7 @@ export default function PlantCard(props: PlantType) {
       <CardActions className={classes.paper}>
         <Grid container direction="row" justify="center" alignItems="center">
           <Button fullWidth className={classes.button} size="small">
-            Add to Cart
+            Add to Basket
           </Button>
         </Grid>
       </CardActions>
