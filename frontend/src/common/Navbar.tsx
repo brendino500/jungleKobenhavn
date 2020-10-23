@@ -285,20 +285,24 @@ export default function Navbar() {
                 {list("right")}
                 <ListItem className={classes.drawerTextRight}>Items</ListItem>
                 <div className={classes.basketButtonLayout}>
-                  <Button
-                    className={classes.basketButtons}
-                    fullWidth
-                    variant="outlined"
-                  >
-                    View Basket
-                  </Button>
-                  <Button
-                    className={classes.basketButtons}
-                    fullWidth
-                    variant="outlined"
-                  >
-                    Take my money
-                  </Button>
+                  <a href={`/basket`} className={classes.link}>
+                    <Button
+                      className={classes.basketButtons}
+                      fullWidth
+                      variant="outlined"
+                    >
+                      View Basket
+                    </Button>
+                  </a>
+                  <a href={`/checkout`} className={classes.link}>
+                    <Button
+                      className={classes.basketButtons}
+                      fullWidth
+                      variant="outlined"
+                    >
+                      Checkout
+                    </Button>
+                  </a>
                 </div>
               </Drawer>
 
