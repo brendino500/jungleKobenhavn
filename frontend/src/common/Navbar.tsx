@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import {
   fade,
   makeStyles,
-  useTheme,
   Theme,
   createStyles,
 } from "@material-ui/core/styles";
@@ -16,7 +15,6 @@ import {
   Toolbar,
   List,
   Typography,
-  Divider,
   Button,
   InputBase,
   Grid,
@@ -24,8 +22,6 @@ import {
   Badge,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -38,50 +34,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       flexGrow: 1,
     },
-    appBar: {
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-    appBarShift: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    hide: {
-      display: "none",
-    },
-    drawer: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-    drawerPaper: {
-      width: drawerWidth,
-      backgroundColor: "#365902",
-    },
     drawerHeader: {
       display: "flex",
       alignItems: "center",
-      padding: theme.spacing(0, 1),
+      padding: theme.spacing(0, 4),
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
       justifyContent: "flex-end",
-    },
-    drawerText: {
-      color: "#C1BFBB",
-      fontFamily: "Open Sans",
-      fontSize: 20,
-      letterSpacing: 2,
-    },
-    drawerGrid: {
-      flexGrow: 1,
     },
     content: {
       flexGrow: 1,
@@ -92,12 +51,21 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
       marginLeft: -drawerWidth,
     },
-    contentShift: {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    drawerPaper: {
+      width: drawerWidth,
+      backgroundColor: "#365902",
+    },
+    drawerText: {
+      color: "#C1BFBB",
+      fontFamily: "Open Sans",
+      fontSize: 20,
+      letterSpacing: 2,
+    },
+    drawerGrid: {
+      flexGrow: 1,
     },
     search: {
       position: "relative",
@@ -187,6 +155,35 @@ const useStyles = makeStyles((theme: Theme) =>
     basketFullList: {
       width: "auto",
     },
+    drawerRight: {
+      backgroundColor: "#365902",
+      width: drawerWidth,
+    },
+    drawerTextRight: {
+      color: "#C1BFBB",
+      fontFamily: "Open Sans",
+      fontSize: 20,
+      letterSpacing: 2,
+      textAlign: "right",
+    },
+    drawerLeft: {
+      backgroundColor: "#365902",
+      width: drawerWidth,
+    },
+    drawerLeftLayout: {
+      flexGrow: 1,
+    },
+    basketButtons: {
+      color: "#C1BFBB",
+      margin: 5,
+      marginLeft: 6,
+      fontFamily: "Open Sans",
+      letterSpacing: 3,
+    },
+    basketButtonLayout: {
+      position: "fixed",
+      bottom: 0,
+    },
   })
 );
 
@@ -194,22 +191,12 @@ type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function Navbar() {
   const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   const toggleDrawer = (anchor: Anchor, open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent
@@ -234,9 +221,7 @@ export default function Navbar() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        <ListItem>Current basket</ListItem>
-      </List>
+      <List></List>
     </div>
   );
 
@@ -245,24 +230,15 @@ export default function Navbar() {
       <CssBaseline />
       <AppBar
         position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
         style={{
           backgroundColor: "#C1BFBB",
           boxShadow: "0px 0px 0px 0px",
         }}
       >
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
+          <Button onClick={toggleDrawer("left", true)}>
             <MenuIcon className={classes.menuIcon} />
-          </IconButton>
+          </Button>
           <Link to={`/`} className={classes.link}>
             <Typography className={classes.title} noWrap>
               Jungle København
@@ -289,26 +265,7 @@ export default function Navbar() {
             justify="flex-end"
             alignItems="center"
           >
-            {/* <IconButton aria-label="show cart items" color="inherit">
-              <Badge
-                badgeContent={4}
-                className={classes.cartIcon}
-                color="secondary"
-              >
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton> */}
             <div>
-              {/* {(["left", "right"] as Anchor[]).map((anchor) => ( */}
-              {/* {(["left", "right"] as Anchor[]).map((anchor) => (
-                <React.Fragment key={anchor}> */}
-              <Button onClick={toggleDrawer("left", true)}>
-                <IconButton aria-label="show cart items" color="inherit">
-                  <Badge badgeContent={4} className={classes.cartIcon}>
-                    <MenuIcon className={classes.menuIcon} />
-                  </Badge>
-                </IconButton>
-              </Button>
               <Button onClick={toggleDrawer("right", true)}>
                 <IconButton aria-label="show cart items" color="inherit">
                   <Badge
@@ -321,86 +278,76 @@ export default function Navbar() {
                 </IconButton>
               </Button>
 
-              {/* <Button onClick={toggleDrawer("left", true)}>
-                <IconButton aria-label="show cart items" color="inherit">
-                  <Badge
-                    badgeContent={4}
-                    className={classes.cartIcon}
-                    color="secondary"
-                  >
-                    <ShoppingCartIcon />
-                  </Badge>
-                </IconButton>
-              </Button> */}
               <Drawer
                 anchor={"right"}
                 open={state["right"]}
                 onClose={toggleDrawer("right", false)}
+                className={classes.drawerRight}
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
               >
                 {list("right")}
+                <ListItem className={classes.drawerTextRight}>Items</ListItem>
+                <div className={classes.basketButtonLayout}>
+                  <Button
+                    className={classes.basketButtons}
+                    fullWidth
+                    variant="outlined"
+                  >
+                    View Basket
+                  </Button>
+                  <Button
+                    className={classes.basketButtons}
+                    fullWidth
+                    variant="outlined"
+                  >
+                    Take my money
+                  </Button>
+                </div>
               </Drawer>
+
               <Drawer
                 anchor={"left"}
                 open={state["left"]}
                 onClose={toggleDrawer("left", false)}
+                className={classes.drawerLeft}
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
               >
                 {list("left")}
-                <ListItem>Plants</ListItem>
-                <ListItem>Home</ListItem>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                  className={classes.drawerLeftLayout}
+                >
+                  <a href={`/`} className={classes.link}>
+                    <ListItem className={classes.drawerText} button>
+                      Home
+                    </ListItem>
+                  </a>
+                  <a href={`/plants`} className={classes.link}>
+                    <ListItem className={classes.drawerText} button>
+                      Plants
+                    </ListItem>
+                  </a>
+                  <a href={`/contact`} className={classes.link}>
+                    <ListItem className={classes.drawerText} button>
+                      Contact
+                    </ListItem>
+                  </a>
+                </Grid>
               </Drawer>
-              {/* </React.Fragment>
-              ))} */}
             </div>
           </Grid>
         </Toolbar>
       </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </div>
-        <List>
-          <Grid
-            container
-            direction="column"
-            justify="space-around"
-            alignItems="center"
-            className={classes.drawerGrid}
-          >
-            <a href={`/`} className={classes.link}>
-              <ListItem className={classes.drawerText} button>
-                Home
-              </ListItem>
-            </a>
-            <a href={`/plants`} className={classes.link}>
-              <ListItem className={classes.drawerText} button>
-                Plants
-              </ListItem>
-            </a>
-            <a href={`/contact`} className={classes.link}>
-              <ListItem className={classes.drawerText} button>
-                Contact
-              </ListItem>
-            </a>
-          </Grid>
-        </List>
-      </Drawer>
       <main
         className={clsx(classes.content, {
-          [classes.contentShift]: open,
+          // [classes.contentShift]: open,
         })}
       >
         <div className={classes.drawerHeader} />
