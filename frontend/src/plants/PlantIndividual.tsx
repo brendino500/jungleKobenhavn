@@ -53,14 +53,14 @@ export default function PlantIndividual(props: any) {
   const [basketState, setBasketState] = React.useContext(BasketContext)
   const classes = useStyles();
 
-  const getData = async () => {
-    const res = await showSinglePlant(props.match.params.id);
-    setData(res.data);
-  };
   console.log('adam',basketState);
   React.useEffect(() => {
+      const getData = async () => {
+        const res = await showSinglePlant(props.match.params.id);
+        setData(res.data);
+      };
     getData();
-  });
+  },[props.match.params.id]);
 
   const handleAddToBasket = () => {
     (setBasketState as Function)((basketState as number[]).concat([props.match.params.id]))

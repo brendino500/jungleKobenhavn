@@ -9,13 +9,3 @@ export const getAllPlants = () => {
 export const showSinglePlant = (id: Number) => {
   return axios.get(`${baseUrl}/plants/${id}`)
 }
-
-
-
-// export const registerUser = formData => {
-//   return axios.post(`${baseUrl}/register`, formData)
-// }
-// export const loginUser = formData => {
-//   return axios.post(`${baseUrl}/login`, formData )
-// }
-

@@ -189,6 +189,7 @@ type Anchor = "top" | "left" | "bottom" | "right";
 export default function Navbar() {
   const classes = useStyles();
   const [basketState, setBasketState] = React.useContext(BasketContext)
+  console.log('navbar', basketState);
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -225,7 +226,6 @@ export default function Navbar() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar
         position="fixed"
         style={{
@@ -264,8 +264,7 @@ export default function Navbar() {
             alignItems="center"
           >
             <div>
-              <Button onClick={toggleDrawer("right", true)}>
-                <IconButton aria-label="show cart items" color="inherit">
+                <IconButton aria-label="show cart items" color="inherit" onClick={toggleDrawer("right", true)}>
                   <Badge
                     badgeContent={(basketState as []).length}
                     className={classes.cartIcon}
@@ -274,8 +273,6 @@ export default function Navbar() {
                     <ShoppingCartIcon />
                   </Badge>
                 </IconButton>
-              </Button>
-
               <Drawer
                 anchor={"right"}
                 open={state["right"]}
