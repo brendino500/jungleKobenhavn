@@ -54,9 +54,13 @@ const useStyles = makeStyles((theme: Theme) =>
     menuButton: {
       marginRight: theme.spacing(2),
     },
-    drawerPaper: {
+    drawerPaperLeft: {
       width: drawerWidth,
       backgroundColor: "#365902",
+    },
+    drawerPaperRight: {
+      width: drawerWidth,
+      backgroundColor: "#C1BFBB",
     },
     drawerText: {
       color: "#C1BFBB",
@@ -155,26 +159,18 @@ const useStyles = makeStyles((theme: Theme) =>
     basketFullList: {
       width: "auto",
     },
-    drawerRight: {
-      backgroundColor: "#365902",
-      width: drawerWidth,
-    },
     drawerTextRight: {
-      color: "#C1BFBB",
+      color: "#365902",
       fontFamily: "Open Sans",
       fontSize: 20,
       letterSpacing: 2,
       textAlign: "right",
     },
-    drawerLeft: {
-      backgroundColor: "#365902",
-      width: drawerWidth,
-    },
     drawerLeftLayout: {
       flexGrow: 1,
     },
     basketButtons: {
-      color: "#C1BFBB",
+      color: "#365902",
       margin: 5,
       marginLeft: 6,
       fontFamily: "Open Sans",
@@ -282,9 +278,8 @@ export default function Navbar() {
                 anchor={"right"}
                 open={state["right"]}
                 onClose={toggleDrawer("right", false)}
-                className={classes.drawerRight}
                 classes={{
-                  paper: classes.drawerPaper,
+                  paper: classes.drawerPaperRight,
                 }}
               >
                 {list("right")}
@@ -311,9 +306,8 @@ export default function Navbar() {
                 anchor={"left"}
                 open={state["left"]}
                 onClose={toggleDrawer("left", false)}
-                className={classes.drawerLeft}
                 classes={{
-                  paper: classes.drawerPaper,
+                  paper: classes.drawerPaperLeft,
                 }}
               >
                 {list("left")}
@@ -345,11 +339,7 @@ export default function Navbar() {
           </Grid>
         </Toolbar>
       </AppBar>
-      <main
-        className={clsx(classes.content, {
-          // [classes.contentShift]: open,
-        })}
-      >
+      <main className={clsx(classes.content)}>
         <div className={classes.drawerHeader} />
       </main>
     </div>
