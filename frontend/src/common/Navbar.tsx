@@ -25,6 +25,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ListItem from "@material-ui/core/ListItem";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { BasketContext } from "../providers/BasketContext";
 
 const drawerWidth = 240;
 
@@ -187,6 +188,7 @@ type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function Navbar() {
   const classes = useStyles();
+  const [basketState, setBasketState] = React.useContext(BasketContext)
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -265,7 +267,7 @@ export default function Navbar() {
               <Button onClick={toggleDrawer("right", true)}>
                 <IconButton aria-label="show cart items" color="inherit">
                   <Badge
-                    badgeContent={4}
+                    badgeContent={(basketState as []).length}
                     className={classes.cartIcon}
                     color="secondary"
                   >
