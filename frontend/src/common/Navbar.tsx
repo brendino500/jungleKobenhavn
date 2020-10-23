@@ -228,7 +228,7 @@ export default function Navbar() {
   const list = (anchor: Anchor) => (
     <div
       className={clsx(classes.basketList, {
-        [classes.basketFullList]: anchor === "top" || anchor === "bottom",
+        [classes.basketFullList]: anchor === "left" || anchor === "right",
       })}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
@@ -289,7 +289,7 @@ export default function Navbar() {
             justify="flex-end"
             alignItems="center"
           >
-            <IconButton aria-label="show cart items" color="inherit">
+            {/* <IconButton aria-label="show cart items" color="inherit">
               <Badge
                 badgeContent={4}
                 className={classes.cartIcon}
@@ -297,24 +297,59 @@ export default function Navbar() {
               >
                 <ShoppingCartIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <div>
-              {(["left", "right", "top", "bottom"] as Anchor[]).map(
-                (anchor) => (
-                  <React.Fragment key={anchor}>
-                    <Button onClick={toggleDrawer(anchor, true)}>
-                      {anchor}
-                    </Button>
-                    <Drawer
-                      anchor={anchor}
-                      open={state[anchor]}
-                      onClose={toggleDrawer(anchor, false)}
-                    >
-                      {list(anchor)}
-                    </Drawer>
-                  </React.Fragment>
-                )
-              )}
+              {/* {(["left", "right"] as Anchor[]).map((anchor) => ( */}
+              {/* {(["left", "right"] as Anchor[]).map((anchor) => (
+                <React.Fragment key={anchor}> */}
+              <Button onClick={toggleDrawer("left", true)}>
+                <IconButton aria-label="show cart items" color="inherit">
+                  <Badge badgeContent={4} className={classes.cartIcon}>
+                    <MenuIcon className={classes.menuIcon} />
+                  </Badge>
+                </IconButton>
+              </Button>
+              <Button onClick={toggleDrawer("right", true)}>
+                <IconButton aria-label="show cart items" color="inherit">
+                  <Badge
+                    badgeContent={4}
+                    className={classes.cartIcon}
+                    color="secondary"
+                  >
+                    <ShoppingCartIcon />
+                  </Badge>
+                </IconButton>
+              </Button>
+
+              {/* <Button onClick={toggleDrawer("left", true)}>
+                <IconButton aria-label="show cart items" color="inherit">
+                  <Badge
+                    badgeContent={4}
+                    className={classes.cartIcon}
+                    color="secondary"
+                  >
+                    <ShoppingCartIcon />
+                  </Badge>
+                </IconButton>
+              </Button> */}
+              <Drawer
+                anchor={"right"}
+                open={state["right"]}
+                onClose={toggleDrawer("right", false)}
+              >
+                {list("right")}
+              </Drawer>
+              <Drawer
+                anchor={"left"}
+                open={state["left"]}
+                onClose={toggleDrawer("left", false)}
+              >
+                {list("left")}
+                <ListItem>Plants</ListItem>
+                <ListItem>Home</ListItem>
+              </Drawer>
+              {/* </React.Fragment>
+              ))} */}
             </div>
           </Grid>
         </Toolbar>
