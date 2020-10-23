@@ -18,13 +18,16 @@ import {
   Typography,
   Divider,
   InputBase,
+  Grid,
   IconButton,
+  Badge,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import SearchIcon from "@material-ui/icons/Search";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const drawerWidth = 240;
 
@@ -32,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "flex",
+      flexGrow: 1,
     },
     appBar: {
       transition: theme.transitions.create(["margin", "width"], {
@@ -74,6 +78,9 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Open Sans",
       fontSize: 20,
       letterSpacing: 2,
+    },
+    drawerGrid: {
+      flexGrow: 1,
     },
     content: {
       flexGrow: 1,
@@ -165,6 +172,14 @@ const useStyles = makeStyles((theme: Theme) =>
     link: {
       textDecoration: "none",
     },
+    basketIcon: {
+      position: "relative",
+      marginLeft: 0,
+    },
+    cartIcon: {
+      color: "#1A3400",
+      position: "absolute",
+    },
   })
 );
 
@@ -224,6 +239,22 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
+          <Grid
+            container
+            direction="row"
+            justify="flex-end"
+            alignItems="center"
+          >
+            <IconButton aria-label="show cart items" color="inherit">
+              <Badge
+                badgeContent={4}
+                className={classes.cartIcon}
+                color="secondary"
+              >
+                <ShoppingCartIcon />
+              </Badge>
+            </IconButton>
+          </Grid>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -245,27 +276,29 @@ export default function Navbar() {
           </IconButton>
         </div>
         <List>
-          <a href={`/`} className={classes.link}>
-            <ListItem className={classes.drawerText} button>
-              Home
-            </ListItem>
-          </a>
-          <a href={`/plants`} className={classes.link}>
-            <ListItem className={classes.drawerText} button>
-              Plants
-            </ListItem>
-          </a>
-          <a href={`/contact`} className={classes.link}>
-            <ListItem className={classes.drawerText} button>
-              Contact
-            </ListItem>
-          </a>
-          <Divider />
-          <a href={`/basket`} className={classes.link}>
-            <ListItem className={classes.drawerText} button>
-              Basket
-            </ListItem>
-          </a>
+          <Grid
+            container
+            direction="column"
+            justify="space-around"
+            alignItems="center"
+            className={classes.drawerGrid}
+          >
+            <a href={`/`} className={classes.link}>
+              <ListItem className={classes.drawerText} button>
+                Home
+              </ListItem>
+            </a>
+            <a href={`/plants`} className={classes.link}>
+              <ListItem className={classes.drawerText} button>
+                Plants
+              </ListItem>
+            </a>
+            <a href={`/contact`} className={classes.link}>
+              <ListItem className={classes.drawerText} button>
+                Contact
+              </ListItem>
+            </a>
+          </Grid>
         </List>
       </Drawer>
       <main

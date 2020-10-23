@@ -8,7 +8,7 @@ import { Container, Typography, Grid } from "@material-ui/core";
 
 export default function KobenhavnMap() {
   const viewport = {
-    latitide: 51,
+    latitide: 55,
     longitude: 12,
     // center: [12, 51],
     zoom: 4,
