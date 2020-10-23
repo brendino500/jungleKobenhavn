@@ -17,6 +17,7 @@ import {
   List,
   Typography,
   Divider,
+  Button,
   InputBase,
   Grid,
   IconButton,
@@ -180,13 +181,27 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#1A3400",
       position: "absolute",
     },
+    basketList: {
+      width: 250,
+    },
+    basketFullList: {
+      width: "auto",
+    },
   })
 );
+
+type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function Navbar() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -195,6 +210,35 @@ export default function Navbar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const toggleDrawer = (anchor: Anchor, open: boolean) => (
+    event: React.KeyboardEvent | React.MouseEvent
+  ) => {
+    if (
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" ||
+        (event as React.KeyboardEvent).key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor: Anchor) => (
+    <div
+      className={clsx(classes.basketList, {
+        [classes.basketFullList]: anchor === "top" || anchor === "bottom",
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        <ListItem>Current basket</ListItem>
+      </List>
+    </div>
+  );
 
   return (
     <div className={classes.root}>
@@ -254,6 +298,24 @@ export default function Navbar() {
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
+            <div>
+              {(["left", "right", "top", "bottom"] as Anchor[]).map(
+                (anchor) => (
+                  <React.Fragment key={anchor}>
+                    <Button onClick={toggleDrawer(anchor, true)}>
+                      {anchor}
+                    </Button>
+                    <Drawer
+                      anchor={anchor}
+                      open={state[anchor]}
+                      onClose={toggleDrawer(anchor, false)}
+                    >
+                      {list(anchor)}
+                    </Drawer>
+                  </React.Fragment>
+                )
+              )}
+            </div>
           </Grid>
         </Toolbar>
       </AppBar>
