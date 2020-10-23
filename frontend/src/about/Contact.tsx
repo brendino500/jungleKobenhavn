@@ -1,14 +1,16 @@
 import React from "react";
 import KobenhavenAddress from "./KobenhavenAddress";
 import KobenhavnMap from "./KobenhavnMap";
+import LondonAddress from "./LondonAddress";
+import LondonMap from "./LondonMap";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography, Grid } from "@material-ui/core";
+import { Container, Typography, Grid, Box } from "@material-ui/core";
 
 export default function Contact() {
   const useStyles = makeStyles({
     root: {
-      margin: 10,
+      margin: 5,
     },
     title: {
       fontFamily: "Playfair Display",
@@ -19,22 +21,38 @@ export default function Contact() {
       color: "#1A3400",
       textAlign: "center",
     },
+    box: {
+      marginTop: "-5%",
+    },
   });
 
   const classes = useStyles();
 
   return (
-    <Container maxWidth="lg">
+    <Container>
       <Typography className={classes.title}>Visit us</Typography>
       <Grid
         container
         direction="row"
-        justify="space-between"
+        justify="space-around"
         alignItems="center"
       >
-        <KobenhavenAddress />
-
-        <KobenhavnMap />
+        <Box className={classes.box}>
+          <div>
+            <KobenhavenAddress />
+          </div>
+          <div>
+            <KobenhavnMap />
+          </div>
+        </Box>
+        <Box className={classes.box}>
+          <div>
+            <LondonAddress />
+          </div>
+          <div>
+            <LondonMap />
+          </div>
+        </Box>
       </Grid>
     </Container>
   );

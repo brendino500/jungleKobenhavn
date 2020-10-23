@@ -1,21 +1,11 @@
 import * as React from "react";
-import MapGl from "react-map-gl";
+import MapGl, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import ReactMapGL, { NavigationControl } from "react-map-gl";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography, Grid } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
 
 export default function KobenhavnMap() {
-  const viewport = {
-    latitide: 55,
-    longitude: 12,
-    // center: [12, 51],
-    zoom: 4,
-    bearing: 0,
-    pitch: 0,
-  };
-
   const useStyles = makeStyles({
     root: {
       margin: 5,
@@ -23,21 +13,23 @@ export default function KobenhavnMap() {
   });
 
   const classes = useStyles();
-
   return (
-    <MapGl
-      {...viewport}
-      mapboxApiAccessToken={process.env.REACT_APP_MAPTOK}
-      height={"75vh"}
-      width={"75vh"}
-      mapStyle="mapbox://styles/heybt/ckgl0qw1j0r1p19qq7u59kla9"
-      // onViewportChange={(viewport) => setState({ viewport })}
-      // zoom={viewport.zoom}
-      // scrollZoom={false}
-    >
-      {/* <div style={{ position: "absolute", right: 30, bottom: 30 }}> */}
-        {/* <NavigationControl />
-      </div> */}
-    </MapGl>
+    <Container className={classes.root}>
+      <MapGl
+        mapboxApiAccessToken={process.env.REACT_APP_MAPTOK}
+        height={"50vh"}
+        width={"50vh"}
+        mapStyle="mapbox://styles/heybt/ckgl0qw1j0r1p19qq7u59kla9"
+        latitude={55.689422}
+        longitude={12.561983}
+        zoom={13}
+      >
+        <Marker key="kobenhavn" latitude={55.689422} longitude={12.561983}>
+          <span role="img" aria-label="marker">
+            📍
+          </span>
+        </Marker>
+      </MapGl>
+    </Container>
   );
 }
