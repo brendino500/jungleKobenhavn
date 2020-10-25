@@ -32,6 +32,12 @@ export default function SummaryCheckout() {
       fontSize: 14,
       color: "#848380",
     },
+    smallText: {
+      marginTop: "5%",
+      fontFamily: "Open Sans",
+      fontSize: 10,
+      color: "#848380",
+    },
     deliverySelect: {
       marginTop: 10,
     },
@@ -104,6 +110,11 @@ export default function SummaryCheckout() {
             <MenuItem className={classes.menuItems}>Pickup in Store</MenuItem>
           </Select>
         </FormControl>
+        <Divider />
+        <Typography className={classes.title}>Total</Typography>
+        <Typography className={classes.smallText}>
+          Delivery details and payment on the next page
+        </Typography>
       </Grid>
     </Container>
   );
