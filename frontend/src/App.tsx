@@ -5,6 +5,7 @@ import PlantIndividual from "./plants/PlantIndividual";
 import PlantIndex from "./plants/PlantIndex";
 import Contact from "./about/Contact";
 import BasketView from "./basket/BasketView";
+import Checkout from "./checkout/Checkout";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { BasketProvider } from "./providers/BasketContext";
@@ -19,7 +20,7 @@ function App() {
           <Route path="/plants/:id" component={PlantIndividual} />
           <Route path="/plants" component={PlantIndex} />
           <Route path="/contact" component={Contact} />
-          <Route path="/basket" component={BasketView} />
+          <Route path="/checkout" component={Checkout} />
         </Switch>
       </BasketProvider>
     </BrowserRouter>

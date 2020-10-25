@@ -9,8 +9,8 @@ import {
   createStyles,
 } from "@material-ui/core/styles";
 import {
+  Container,
   Drawer,
-  CssBaseline,
   AppBar,
   Toolbar,
   List,
@@ -173,13 +173,13 @@ const useStyles = makeStyles((theme: Theme) =>
     basketButtons: {
       color: "#365902",
       margin: 5,
-      marginLeft: 6,
       fontFamily: "Open Sans",
       letterSpacing: 3,
     },
     basketButtonLayout: {
       position: "fixed",
       bottom: 0,
+      width: 250,
     },
   })
 );
@@ -188,8 +188,8 @@ type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function Navbar() {
   const classes = useStyles();
-  const [basketState, setBasketState] = React.useContext(BasketContext)
-  console.log('navbar', basketState);
+  const [basketState, setBasketState] = React.useContext(BasketContext);
+  console.log("navbar", basketState);
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -264,15 +264,19 @@ export default function Navbar() {
             alignItems="center"
           >
             <div>
-                <IconButton aria-label="show cart items" color="inherit" onClick={toggleDrawer("right", true)}>
-                  <Badge
-                    badgeContent={(basketState as []).length}
-                    className={classes.cartIcon}
-                    color="secondary"
-                  >
-                    <ShoppingCartIcon />
-                  </Badge>
-                </IconButton>
+              <IconButton
+                aria-label="show cart items"
+                color="inherit"
+                onClick={toggleDrawer("right", true)}
+              >
+                <Badge
+                  badgeContent={(basketState as []).length}
+                  className={classes.cartIcon}
+                  color="secondary"
+                >
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
               <Drawer
                 anchor={"right"}
                 open={state["right"]}
@@ -283,8 +287,8 @@ export default function Navbar() {
               >
                 {list("right")}
                 <ListItem className={classes.drawerTextRight}>Items</ListItem>
-                <div className={classes.basketButtonLayout}>
-                  <a href={`/basket`} className={classes.link}>
+                <section className={classes.basketButtonLayout}>
+                  {/* <a href={`/basket`} className={classes.link}>
                     <Button
                       className={classes.basketButtons}
                       fullWidth
@@ -292,7 +296,7 @@ export default function Navbar() {
                     >
                       View Basket
                     </Button>
-                  </a>
+                  </a> */}
                   <a href={`/checkout`} className={classes.link}>
                     <Button
                       className={classes.basketButtons}
@@ -302,7 +306,7 @@ export default function Navbar() {
                       Checkout
                     </Button>
                   </a>
-                </div>
+                </section>
               </Drawer>
 
               <Drawer
