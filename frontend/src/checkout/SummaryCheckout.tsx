@@ -10,7 +10,9 @@ import {
   FormControl,
   MenuItem,
   InputLabel,
+  Button,
 } from "@material-ui/core";
+import LockIcon from "@material-ui/icons/Lock";
 
 export default function SummaryCheckout() {
   const useStyles = makeStyles({
@@ -52,6 +54,21 @@ export default function SummaryCheckout() {
     menuItems: {
       fontFamily: "Open Sans",
       fontSize: 14,
+    },
+    button: {
+      backgroundColor: "#25462e",
+      marginTop: "5%",
+    },
+    buttonText: {
+      fontFamily: "Playfair Display",
+      fontSize: 12,
+      color: "#EBE8E5",
+      letterSpacing: 2,
+    },
+    lockIcon: {
+      color: "#EBE8E5",
+      fontSize: 12,
+      marginRight: "4%",
     },
   });
 
@@ -113,8 +130,12 @@ export default function SummaryCheckout() {
         <Divider />
         <Typography className={classes.title}>Total</Typography>
         <Typography className={classes.smallText}>
-          Delivery details and payment on the next page
+          Delivery details and secure payment on the next page
         </Typography>
+        <Button className={classes.button} fullWidth variant="contained">
+          <LockIcon className={classes.lockIcon} />
+          <Typography className={classes.buttonText}>Checkout</Typography>
+        </Button>
       </Grid>
     </Container>
   );

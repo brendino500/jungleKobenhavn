@@ -21,8 +21,8 @@ export default function Checkout() {
       fontSize: 30,
       letterSpacing: 6,
       fontWeight: "bold",
-      textTransform: "uppercase",
       color: "#1A3400",
+      textTransform: "uppercase",
       textAlign: "center",
     },
     text: {

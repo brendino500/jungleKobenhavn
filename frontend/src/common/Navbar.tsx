@@ -25,6 +25,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ListItem from "@material-ui/core/ListItem";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PlantCardNavbar from "./PlantCardNavbar";
 import { BasketContext } from "../providers/BasketContext";
 
 const drawerWidth = 240;
@@ -287,6 +288,7 @@ export default function Navbar() {
               >
                 {list("right")}
                 <ListItem className={classes.drawerTextRight}>Items</ListItem>
+                <PlantCardNavbar />
                 <section className={classes.basketButtonLayout}>
                   <Link to={`/checkout`} className={classes.link}>
                     <Button

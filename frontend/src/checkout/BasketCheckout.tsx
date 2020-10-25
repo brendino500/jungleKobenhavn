@@ -14,8 +14,8 @@ export default function BasketCheckout() {
       fontSize: 18,
       color: "#848380",
       marginTop: "30%",
-      textTransform: "uppercase",
       letterSpacing: 4,
+      textTransform: "uppercase",
     },
   });
 
