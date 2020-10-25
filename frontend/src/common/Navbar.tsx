@@ -288,16 +288,7 @@ export default function Navbar() {
                 {list("right")}
                 <ListItem className={classes.drawerTextRight}>Items</ListItem>
                 <section className={classes.basketButtonLayout}>
-                  {/* <a href={`/basket`} className={classes.link}>
-                    <Button
-                      className={classes.basketButtons}
-                      fullWidth
-                      variant="outlined"
-                    >
-                      View Basket
-                    </Button>
-                  </a> */}
-                  <a href={`/checkout`} className={classes.link}>
+                  <Link to={`/checkout`} className={classes.link}>
                     <Button
                       className={classes.basketButtons}
                       fullWidth
@@ -305,7 +296,7 @@ export default function Navbar() {
                     >
                       Checkout
                     </Button>
-                  </a>
+                  </Link>
                 </section>
               </Drawer>
 
@@ -325,21 +316,21 @@ export default function Navbar() {
                   alignItems="center"
                   className={classes.drawerLeftLayout}
                 >
-                  <a href={`/`} className={classes.link}>
+                  <Link to={`/`} className={classes.link}>
                     <ListItem className={classes.drawerText} button>
                       Home
                     </ListItem>
-                  </a>
-                  <a href={`/plants`} className={classes.link}>
+                  </Link>
+                  <Link to={`/plants`} className={classes.link}>
                     <ListItem className={classes.drawerText} button>
                       Plants
                     </ListItem>
-                  </a>
-                  <a href={`/contact`} className={classes.link}>
+                  </Link>
+                  <Link to={`/contact`} className={classes.link}>
                     <ListItem className={classes.drawerText} button>
                       Contact
                     </ListItem>
-                  </a>
+                  </Link>
                 </Grid>
               </Drawer>
             </div>

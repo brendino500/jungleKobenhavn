@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BasketContext } from "../providers/BasketContext";
 
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Card,
@@ -50,12 +51,17 @@ const useStyles = makeStyles({
 });
 
 export default function PlantCard(props: PlantType) {
+  const [basketState, setBasketState] = React.useContext(BasketContext);
   const classes = useStyles();
+
+  const handleAddToBasket = () => {
+    (setBasketState as Function)((basketState as string[]).concat([props._id]));
+  };
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <a href={`/plants/${props._id}`} className={classes.link}>
+        <Link to={`/plants/${props._id}`} className={classes.link}>
           <CardMedia className={classes.media} image={props.image} />
           <CardContent className={classes.paper}>
             <Typography className={classes.text} gutterBottom>
@@ -63,11 +69,16 @@ export default function PlantCard(props: PlantType) {
             </Typography>
             <Typography className={classes.price}>£{props.price}.00</Typography>
           </CardContent>
-        </a>
+        </Link>
       </CardActionArea>
       <CardActions className={classes.paper}>
         <Grid container direction="row" justify="center" alignItems="center">
-          <Button fullWidth className={classes.button} size="small">
+          <Button
+            fullWidth
+            className={classes.button}
+            size="small"
+            onClick={handleAddToBasket}
+          >
             Add to Basket
           </Button>
         </Grid>

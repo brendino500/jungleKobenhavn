@@ -1,5 +1,5 @@
 import React from "react";
-import { BasketContext } from '../providers/BasketContext'
+import { BasketContext } from "../providers/BasketContext";
 import { showSinglePlant } from "../lib/api";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -47,24 +47,25 @@ const useStyles = makeStyles({
   },
 });
 
-
 export default function PlantIndividual(props: any) {
   const [data, setData] = React.useState();
-  const [basketState, setBasketState] = React.useContext(BasketContext)
+  const [basketState, setBasketState] = React.useContext(BasketContext);
   const classes = useStyles();
 
-  console.log('adam',basketState);
+  console.log("adam", basketState);
   React.useEffect(() => {
-      const getData = async () => {
-        const res = await showSinglePlant(props.match.params.id);
-        setData(res.data);
-      };
+    const getData = async () => {
+      const res = await showSinglePlant(props.match.params.id);
+      setData(res.data);
+    };
     getData();
-  },[props.match.params.id]);
+  }, [props.match.params.id]);
 
   const handleAddToBasket = () => {
-    (setBasketState as Function)((basketState as number[]).concat([props.match.params.id]))
-  }
+    (setBasketState as Function)(
+      (basketState as string[]).concat([props.match.params.id])
+    );
+  };
 
   if (!data) return null;
   return (
