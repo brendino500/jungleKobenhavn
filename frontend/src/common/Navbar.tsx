@@ -190,7 +190,7 @@ type Anchor = "top" | "left" | "bottom" | "right";
 export default function Navbar() {
   const classes = useStyles();
   const [basketState, setBasketState] = React.useContext(BasketContext);
-  console.log("navbar", basketState);
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
