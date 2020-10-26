@@ -83,7 +83,7 @@ export default function SummaryCheckout() {
   });
 
   const classes = useStyles();
-  const [shipping, setShipping] = React.useState();
+  const [shipping, setShipping] = React.useState<string | undefined>("");
   const [basketState, setBasketState] = React.useContext(BasketContext);
   const [plantsInBasket, setPlantsInBasket] = React.useState<
     (PlantType | undefined)[]
@@ -108,6 +108,8 @@ export default function SummaryCheckout() {
       return `£${shipping}.00`;
     }
   };
+  const shippingCost = typeof shipping === "number" ? shipping : 0;
+  const totalCost = totalCostOfBasket(plantsInBasket) + shippingCost;
 
   console.log("ordersummary", shipping);
 
@@ -175,7 +177,7 @@ export default function SummaryCheckout() {
           alignItems="flex-start"
         >
           <Typography className={classes.title}>Total</Typography>
-          <Typography className={classes.title}>£.00</Typography>
+          <Typography className={classes.title}>£{totalCost}.00</Typography>
         </Grid>
         <Typography className={classes.smallText}>
           Delivery details and secure payment on the next page
