@@ -132,7 +132,7 @@ const useStyles = makeStyles((theme: Theme) =>
       position: "absolute",
     },
     basketList: {
-      width: 250,
+      width: 200,
     },
     basketFullList: {
       width: "auto",
@@ -142,10 +142,16 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Open Sans",
       fontSize: 20,
       letterSpacing: 2,
-      marginLeft: 5,
     },
     drawerLeftLayout: {
       flexGrow: 1,
+    },
+    drawerTotal: {
+      color: "#365902",
+      fontFamily: "Open Sans",
+      fontSize: 15,
+      letterSpacing: 2,
+      marginLeft: 10,
     },
     basketButtons: {
       color: "#365902",
@@ -161,7 +167,7 @@ const useStyles = makeStyles((theme: Theme) =>
     basketTotalPrice: {
       display: "flex",
       flexDirection: "row",
-      margin: 5,
+      marginLeft: 5,
     },
   })
 );
@@ -290,10 +296,10 @@ export default function Navbar() {
                     justify="space-between"
                     alignItems="flex-start"
                   >
-                    <Typography className={classes.drawerTextRight}>
+                    <Typography className={classes.drawerTotal}>
                       Total
                     </Typography>
-                    <Typography className={classes.drawerTextRight}>
+                    <Typography className={classes.drawerTotal}>
                       £{totalCostOfBasket(plantsInBasket)}.00
                     </Typography>
                   </Grid>
