@@ -8,7 +8,7 @@ import { Container, Typography, Grid, Box } from "@material-ui/core";
 export default function Checkout() {
   const useStyles = makeStyles({
     root: {
-      margin: 5,
+      margin: 2,
     },
     basket: {
       flexGrow: 3,

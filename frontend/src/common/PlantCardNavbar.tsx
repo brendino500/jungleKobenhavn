@@ -1,6 +1,6 @@
 import React from "react";
 import { BasketContext } from "../providers/BasketContext";
-import { getAllPlants } from "../lib/api";
+import { getPlantsInBasket } from "../lib/api";
 import { PlantType } from "../plants/PlantType";
 
 import { Link } from "react-router-dom";
@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
   CardMedia,
@@ -16,7 +15,7 @@ import {
 
 const useStyles = makeStyles({
   root: {
-    margin: 5,
+    // margin: 1,
     // display: "flex",
   },
   image: {
@@ -39,7 +38,7 @@ const useStyles = makeStyles({
   },
   card: {
     elevation: 0,
-    margin: 2,
+    margin: 1,
   },
   cardContent: {
     display: "flex",
@@ -52,27 +51,18 @@ const useStyles = makeStyles({
 
 export default function PlantCardNavbar() {
   const [basketState, setBasketState] = React.useContext(BasketContext);
-  const [data, setData] = React.useState([]);
+  const [plantsInBasket, setPlantsInBasket] = React.useState<
+    (PlantType | undefined)[]
+  >([]);
   const classes = useStyles();
 
-  const getData = async () => {
-    const res = await getAllPlants();
-    setData(res.data);
-  };
-
   React.useEffect(() => {
-    getData();
+    getPlantsInBasket(basketState as []).then(
+      (plants: (PlantType | undefined)[]) => {
+        setPlantsInBasket(plants);
+      }
+    );
   }, []);
-
-  console.log("plantcardnav", basketState);
-
-  const plantsInBasket: (PlantType | undefined)[] = (basketState as []).map(
-    (plantID: string): PlantType | undefined => {
-      return data.find((value: PlantType) => {
-        return value._id === plantID;
-      });
-    }
-  );
 
   return (
     <Container className={classes.root}>

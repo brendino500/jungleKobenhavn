@@ -24,9 +24,9 @@ export default function SummaryCheckout() {
       fontWeight: "bold",
       fontSize: 18,
       color: "#848380",
-      marginTop: "30%",
-      textTransform: "uppercase",
-      letterSpacing: 4,
+      marginTop: 12,
+      // textTransform: "uppercase",
+      letterSpacing: 3,
     },
     text: {
       marginTop: "5%",
