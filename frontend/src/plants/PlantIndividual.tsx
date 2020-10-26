@@ -1,6 +1,7 @@
 import React from "react";
 import { BasketContext } from "../providers/BasketContext";
 import { showSinglePlant } from "../lib/api";
+// import { popupNotification } from "../lib/notification";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Grid, Typography, Button } from "@material-ui/core";
@@ -69,6 +70,7 @@ export default function PlantIndividual(props: any) {
     (setBasketState as Function)(
       (basketState as string[]).concat([props.match.params.id])
     );
+    // popupNotification(`${data.name} added to basket`);
   };
 
   if (!data) return null;
