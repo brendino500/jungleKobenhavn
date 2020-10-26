@@ -4,7 +4,14 @@ import { showSinglePlant } from "../lib/api";
 // import { popupNotification } from "../lib/notification";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Typography, Button } from "@material-ui/core";
+import {
+  Container,
+  Grid,
+  Typography,
+  Button,
+  Snackbar,
+} from "@material-ui/core";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles({
   root: {
@@ -51,11 +58,17 @@ const useStyles = makeStyles({
     marginLeft: 50,
     color: "#25462e",
   },
+  snackbar: {
+    color: "#EBE8E5",
+    fontFamily: "Playfair Display",
+    backgroundColor: "#497702",
+  },
 });
 
 export default function PlantIndividual(props: any) {
   const [data, setData] = React.useState();
   const [basketState, setBasketState] = React.useContext(BasketContext);
+  const [open, setOpen] = React.useState(false);
   const classes = useStyles();
 
   React.useEffect(() => {
@@ -70,7 +83,14 @@ export default function PlantIndividual(props: any) {
     (setBasketState as Function)(
       (basketState as string[]).concat([props.match.params.id])
     );
-    // popupNotification(`${data.name} added to basket`);
+    setOpen(true);
+  };
+
+  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
   };
 
   if (!data) return null;
@@ -104,6 +124,21 @@ export default function PlantIndividual(props: any) {
           >
             Add to Basket
           </Button>
+          <Snackbar
+            ContentProps={{
+              classes: {
+                root: classes.snackbar,
+              },
+            }}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+            open={open}
+            autoHideDuration={3000}
+            onClose={handleClose}
+            message={`You have added ${data.name} to your basket`}
+          />
         </div>
       </Grid>
     </Container>
