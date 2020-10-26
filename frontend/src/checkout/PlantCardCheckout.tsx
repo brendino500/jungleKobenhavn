@@ -69,8 +69,6 @@ export default function PlantCardCheckout() {
     );
   }, []);
 
-  console.log("plantcardcheckout", plantsInBasket);
-
   return (
     <Container className={classes.root}>
       {plantsInBasket.map((plant: PlantType | undefined) => {

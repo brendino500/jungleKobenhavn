@@ -1,4 +1,8 @@
 import React from "react";
+import { BasketContext } from "../providers/BasketContext";
+import { getPlantsInBasket } from "../lib/api";
+import { PlantType } from "../plants/PlantType";
+import { totalCostOfBasket } from "../utils/methods";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -25,7 +29,6 @@ export default function SummaryCheckout() {
       fontSize: 18,
       color: "#848380",
       marginTop: 12,
-      // textTransform: "uppercase",
       letterSpacing: 3,
     },
     text: {
@@ -73,6 +76,31 @@ export default function SummaryCheckout() {
   });
 
   const classes = useStyles();
+  const [basketState, setBasketState] = React.useContext(BasketContext);
+  const [plantsInBasket, setPlantsInBasket] = React.useState<
+    (PlantType | undefined)[]
+  >([]);
+
+  React.useEffect(() => {
+    getPlantsInBasket(basketState as []).then(
+      (plants: (PlantType | undefined)[]) => {
+        setPlantsInBasket(plants);
+      }
+    );
+  }, []);
+
+  // function totalCostOfBasket(): number {
+  //   let totalCost = 0;
+
+  //   plantsInBasket.forEach((value) => {
+  //     if (value !== undefined) {
+  //       totalCost += value.price;
+  //     }
+  //   });
+
+  //   return totalCost;
+  // }
+  console.log(totalCostOfBasket(plantsInBasket));
 
   return (
     <Container className={classes.root}>
@@ -128,7 +156,17 @@ export default function SummaryCheckout() {
           </Select>
         </FormControl>
         <Divider />
-        <Typography className={classes.title}>Total</Typography>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="flex-start"
+        >
+          <Typography className={classes.title}>Total</Typography>
+          <Typography className={classes.title}>
+            £{totalCostOfBasket(plantsInBasket)}.00
+          </Typography>
+        </Grid>
         <Typography className={classes.smallText}>
           Delivery details and secure payment on the next page
         </Typography>
