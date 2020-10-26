@@ -39,6 +39,7 @@ const useStyles = makeStyles({
   card: {
     elevation: 0,
     margin: 1,
+    padding: 5,
   },
   cardContent: {
     display: "flex",
