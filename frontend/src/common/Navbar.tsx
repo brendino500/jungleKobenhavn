@@ -56,9 +56,6 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
       marginLeft: -drawerWidth,
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
     drawerPaperLeft: {
       width: drawerWidth,
       backgroundColor: "#365902",
@@ -72,12 +69,6 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Open Sans",
       fontSize: 20,
       letterSpacing: 2,
-    },
-    drawerGrid: {
-      flexGrow: 1,
-    },
-    drawerRight: {
-      width: 400,
     },
     search: {
       position: "relative",
@@ -107,7 +98,6 @@ const useStyles = makeStyles((theme: Theme) =>
     searchText: {
       fontFamily: "Playfair Display",
       letterSpacing: 1,
-      fontWeight: "bold",
       color: "#1A3400",
     },
     inputRoot: {
@@ -123,22 +113,6 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "20ch",
       },
     },
-    sectionDesktop: {
-      display: "none",
-      [theme.breakpoints.up("md")]: {
-        display: "flex",
-      },
-    },
-    sectionMobile: {
-      display: "flex",
-      [theme.breakpoints.up("md")]: {
-        display: "none",
-      },
-    },
-    basket: {
-      position: "absolute",
-      bottom: 0,
-    },
     title: {
       fontFamily: "Playfair Display",
       fontSize: 17,
@@ -152,10 +126,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     link: {
       textDecoration: "none",
-    },
-    basketIcon: {
-      position: "relative",
-      marginLeft: 0,
     },
     cartIcon: {
       color: "#1A3400",
@@ -172,7 +142,6 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Open Sans",
       fontSize: 20,
       letterSpacing: 2,
-      textAlign: "right",
       marginLeft: 5,
     },
     drawerLeftLayout: {
@@ -309,7 +278,6 @@ export default function Navbar() {
                 classes={{
                   paper: classes.drawerPaperRight,
                 }}
-                className={classes.drawerRight}
               >
                 {list("right")}
                 <ListItem className={classes.drawerTextRight}>Items</ListItem>

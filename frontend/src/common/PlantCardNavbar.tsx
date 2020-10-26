@@ -14,10 +14,7 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  root: {
-    // margin: 1,
-    // display: "flex",
-  },
+  root: {},
   image: {
     height: 75,
     width: 75,
