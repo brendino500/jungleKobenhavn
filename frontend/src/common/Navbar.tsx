@@ -1,5 +1,7 @@
 import React from "react";
 import clsx from "clsx";
+import { PlantType } from "../plants/PlantType";
+import { getPlantsInBasket } from "../lib/api";
 
 import { Link } from "react-router-dom";
 import {
@@ -182,6 +184,11 @@ const useStyles = makeStyles((theme: Theme) =>
       bottom: 0,
       width: 250,
     },
+    basketTotalPrice: {
+      display: "flex",
+      flexDirection: "row",
+      margin: 5,
+    },
   })
 );
 
@@ -190,7 +197,6 @@ type Anchor = "top" | "left" | "bottom" | "right";
 export default function Navbar() {
   const classes = useStyles();
   const [basketState, setBasketState] = React.useContext(BasketContext);
-
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -290,6 +296,20 @@ export default function Navbar() {
                 <ListItem className={classes.drawerTextRight}>Items</ListItem>
                 <PlantCardNavbar />
                 <section className={classes.basketButtonLayout}>
+                  <Grid
+                    container
+                    direction="row"
+                    justify="space-between"
+                    alignItems="flex-start"
+                  >
+                    <Typography className={classes.drawerTextRight}>
+                      Total
+                    </Typography>
+                    <Typography className={classes.drawerTextRight}>
+                      £{}
+                    </Typography>
+                  </Grid>
+
                   <Link to={`/checkout`} className={classes.link}>
                     <Button
                       className={classes.basketButtons}

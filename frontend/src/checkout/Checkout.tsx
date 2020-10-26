@@ -3,7 +3,7 @@ import BasketCheckout from "./BasketCheckout";
 import SummaryCheckout from "./SummaryCheckout";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography, Grid, Box } from "@material-ui/core";
+import { Container, Typography, Grid } from "@material-ui/core";
 
 export default function Checkout() {
   const useStyles = makeStyles({
@@ -12,6 +12,7 @@ export default function Checkout() {
     },
     basket: {
       flexGrow: 3,
+      flexDirection: "column",
     },
     summary: {
       flexGrow: 1,

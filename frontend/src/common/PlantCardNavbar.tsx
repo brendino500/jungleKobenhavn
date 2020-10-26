@@ -39,7 +39,6 @@ const useStyles = makeStyles({
   card: {
     elevation: 0,
     margin: 1,
-    padding: 5,
   },
   cardContent: {
     display: "flex",
@@ -72,8 +71,12 @@ export default function PlantCardNavbar() {
           console.log("Plant ID not found");
         } else {
           return (
-            <Link to={`/plants/${plant._id}`} className={classes.link}>
-              <Card key={plant.name} className={classes.card} elevation={0}>
+            <Link
+              to={`/plants/${plant._id}`}
+              className={classes.link}
+              key={plant.name}
+            >
+              <Card className={classes.card} elevation={0}>
                 <div className={classes.cardContent}>
                   <CardMedia
                     className={classes.image}

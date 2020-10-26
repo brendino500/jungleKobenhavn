@@ -20,16 +20,19 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     textTransform: "uppercase",
     width: 300,
+    color: "#25462e",
   },
   text: {
     fontFamily: "Open Sans",
     fontSize: 14,
     width: 300,
+    color: "#25462e",
   },
   price: {
     fontFamily: "Playfair Display",
     fontWeight: "bold",
     letterSpacing: 2,
+    color: "#25462e",
   },
   button: {
     color: "#EBE8E5",
@@ -41,9 +44,11 @@ const useStyles = makeStyles({
   numbers: {
     fontFamily: "Open Sans",
     fontSize: 12,
+    color: "#25462e",
   },
   plantInfo: {
     marginLeft: 50,
+    color: "#25462e",
   },
 });
 
@@ -52,7 +57,6 @@ export default function PlantIndividual(props: any) {
   const [basketState, setBasketState] = React.useContext(BasketContext);
   const classes = useStyles();
 
-  console.log("adam", basketState);
   React.useEffect(() => {
     const getData = async () => {
       const res = await showSinglePlant(props.match.params.id);

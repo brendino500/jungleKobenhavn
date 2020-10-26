@@ -4,7 +4,6 @@ import Navbar from "./common/Navbar";
 import PlantIndividual from "./plants/PlantIndividual";
 import PlantIndex from "./plants/PlantIndex";
 import Contact from "./about/Contact";
-import BasketView from "./basket/BasketView";
 import Checkout from "./checkout/Checkout";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";

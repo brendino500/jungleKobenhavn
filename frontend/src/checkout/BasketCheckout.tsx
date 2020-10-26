@@ -2,7 +2,7 @@ import React from "react";
 import PlantCardCheckout from "./PlantCardCheckout";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography, Grid, Box, Divider } from "@material-ui/core";
+import { Container, Typography, Grid, Divider } from "@material-ui/core";
 
 export default function BasketCheckout() {
   const useStyles = makeStyles({
