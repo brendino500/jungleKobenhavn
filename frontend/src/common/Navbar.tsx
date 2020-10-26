@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { PlantType } from "../plants/PlantType";
 import { getPlantsInBasket } from "../lib/api";
+import { totalCostOfBasket } from "../utils/methods";
 
 import { Link } from "react-router-dom";
 import {
@@ -74,6 +75,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerGrid: {
       flexGrow: 1,
+    },
+    drawerRight: {
+      width: 400,
     },
     search: {
       position: "relative",
@@ -169,6 +173,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: 20,
       letterSpacing: 2,
       textAlign: "right",
+      marginLeft: 5,
     },
     drawerLeftLayout: {
       flexGrow: 1,
@@ -182,7 +187,7 @@ const useStyles = makeStyles((theme: Theme) =>
     basketButtonLayout: {
       position: "fixed",
       bottom: 0,
-      width: 250,
+      width: drawerWidth - 20,
     },
     basketTotalPrice: {
       display: "flex",
@@ -203,6 +208,17 @@ export default function Navbar() {
     bottom: false,
     right: false,
   });
+  const [plantsInBasket, setPlantsInBasket] = React.useState<
+    (PlantType | undefined)[]
+  >([]);
+
+  React.useEffect(() => {
+    getPlantsInBasket(basketState as []).then(
+      (plants: (PlantType | undefined)[]) => {
+        setPlantsInBasket(plants);
+      }
+    );
+  }, [basketState]);
 
   const toggleDrawer = (anchor: Anchor, open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent
@@ -230,6 +246,8 @@ export default function Navbar() {
       <List></List>
     </div>
   );
+
+  console.log("navbar", basketState, plantsInBasket);
 
   return (
     <div className={classes.root}>
@@ -291,6 +309,7 @@ export default function Navbar() {
                 classes={{
                   paper: classes.drawerPaperRight,
                 }}
+                className={classes.drawerRight}
               >
                 {list("right")}
                 <ListItem className={classes.drawerTextRight}>Items</ListItem>
@@ -298,6 +317,7 @@ export default function Navbar() {
                 <section className={classes.basketButtonLayout}>
                   <Grid
                     container
+                    sm
                     direction="row"
                     justify="space-between"
                     alignItems="flex-start"
@@ -306,7 +326,7 @@ export default function Navbar() {
                       Total
                     </Typography>
                     <Typography className={classes.drawerTextRight}>
-                      £{}
+                      £{totalCostOfBasket(plantsInBasket)}.00
                     </Typography>
                   </Grid>
 

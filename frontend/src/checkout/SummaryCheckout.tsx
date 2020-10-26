@@ -87,20 +87,7 @@ export default function SummaryCheckout() {
         setPlantsInBasket(plants);
       }
     );
-  }, []);
-
-  // function totalCostOfBasket(): number {
-  //   let totalCost = 0;
-
-  //   plantsInBasket.forEach((value) => {
-  //     if (value !== undefined) {
-  //       totalCost += value.price;
-  //     }
-  //   });
-
-  //   return totalCost;
-  // }
-  console.log(totalCostOfBasket(plantsInBasket));
+  }, [basketState]);
 
   return (
     <Container className={classes.root}>

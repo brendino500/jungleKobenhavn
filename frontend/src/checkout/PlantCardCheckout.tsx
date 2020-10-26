@@ -111,39 +111,5 @@ export default function PlantCardCheckout() {
         }
       })}
     </Container>
-    // <Card className={classes.root}>
-    //   <div className={classes.details}>
-    //     <CardContent className={classes.content}>
-    //       <Typography className={classes.plantName}>Live From Space</Typography>
-    //       <Typography variant="subtitle1" color="textSecondary">
-    //         Mac Miller
-    //       </Typography>
-    //     </CardContent>
-    //     <div className={classes.controls}>
-    //       <IconButton aria-label="previous">
-    //         {theme.direction === "rtl" ? (
-    //           <SkipNextIcon />
-    //         ) : (
-    //           <SkipPreviousIcon />
-    //         )}
-    //       </IconButton>
-    //       <IconButton aria-label="play/pause">
-    //         <PlayArrowIcon className={classes.playIcon} />
-    //       </IconButton>
-    //       <IconButton aria-label="next">
-    //         {theme.direction === "rtl" ? (
-    //           <SkipPreviousIcon />
-    //         ) : (
-    //           <SkipNextIcon />
-    //         )}
-    //       </IconButton>
-    //     </div>
-    //   </div>
-    //   <CardMedia
-    //     className={classes.cover}
-    //     image="/static/images/cards/live-from-space.jpg"
-    //     title="Live from space album cover"
-    //   />
-    // </Card>
   );
 }
