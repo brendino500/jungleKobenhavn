@@ -12,7 +12,6 @@ import {
   createStyles,
 } from "@material-ui/core/styles";
 import {
-  Container,
   Drawer,
   AppBar,
   Toolbar,
@@ -291,7 +290,6 @@ export default function Navbar() {
                 <section className={classes.basketButtonLayout}>
                   <Grid
                     container
-                    sm
                     direction="row"
                     justify="space-between"
                     alignItems="flex-start"

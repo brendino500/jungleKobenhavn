@@ -4,6 +4,7 @@ import { getPlantsInBasket } from "../lib/api";
 import { PlantType } from "../plants/PlantType";
 import { totalCostOfBasket } from "../utils/methods";
 
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -22,6 +23,7 @@ export default function SummaryCheckout() {
   const useStyles = makeStyles({
     root: {
       margin: 5,
+      width: "auto",
     },
     title: {
       fontFamily: "Playfair Display",
@@ -53,6 +55,8 @@ export default function SummaryCheckout() {
     },
     selectButton: {
       color: "#848380",
+      fontFamily: "Open Sans",
+      fontSize: 14,
     },
     menuItems: {
       fontFamily: "Open Sans",
@@ -73,9 +77,13 @@ export default function SummaryCheckout() {
       fontSize: 12,
       marginRight: "4%",
     },
+    link: {
+      textDecoration: "none",
+    },
   });
 
   const classes = useStyles();
+  const [shipping, setShipping] = React.useState();
   const [basketState, setBasketState] = React.useContext(BasketContext);
   const [plantsInBasket, setPlantsInBasket] = React.useState<
     (PlantType | undefined)[]
@@ -88,6 +96,20 @@ export default function SummaryCheckout() {
       }
     );
   }, [basketState]);
+
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setShipping(event.target.value as string | undefined);
+  };
+
+  const shippingTotal = () => {
+    if (!shipping) {
+      return "FREE";
+    } else {
+      return `£${shipping}.00`;
+    }
+  };
+
+  console.log("ordersummary", shipping);
 
   return (
     <Container className={classes.root}>
@@ -107,7 +129,9 @@ export default function SummaryCheckout() {
           alignItems="flex-start"
         >
           <Typography className={classes.text}>Subtotal</Typography>
-          <Typography className={classes.text}>£</Typography>
+          <Typography className={classes.text}>
+            £{totalCostOfBasket(plantsInBasket)}.00
+          </Typography>
         </Grid>
         <Grid
           container
@@ -116,7 +140,7 @@ export default function SummaryCheckout() {
           alignItems="flex-start"
         >
           <Typography className={classes.text}>Shipping</Typography>
-          <Typography className={classes.text}>£</Typography>
+          <Typography className={classes.text}>{shippingTotal()}</Typography>
         </Grid>
         <FormControl
           variant="outlined"
@@ -130,16 +154,17 @@ export default function SummaryCheckout() {
             className={classes.selectButton}
             labelId="shipping"
             id="shipping"
-            // value={shipping}
-            // onChange={handleChange}
-            label="Age"
+            value={shipping}
+            onChange={handleChange}
+            label="shipping"
             fullWidth
           >
-            <MenuItem value="" className={classes.menuItems}>
-              <em>None</em>
+            <MenuItem className={classes.menuItems} value={7}>
+              Delivery - £7.00
             </MenuItem>
-            <MenuItem className={classes.menuItems}>Delivery - £6.99</MenuItem>
-            <MenuItem className={classes.menuItems}>Pickup in Store</MenuItem>
+            <MenuItem value={0} className={classes.menuItems}>
+              Pickup in Store - FREE
+            </MenuItem>
           </Select>
         </FormControl>
         <Divider />
@@ -150,17 +175,20 @@ export default function SummaryCheckout() {
           alignItems="flex-start"
         >
           <Typography className={classes.title}>Total</Typography>
-          <Typography className={classes.title}>
-            £{totalCostOfBasket(plantsInBasket)}.00
-          </Typography>
+          <Typography className={classes.title}>£.00</Typography>
         </Grid>
         <Typography className={classes.smallText}>
           Delivery details and secure payment on the next page
         </Typography>
-        <Button className={classes.button} fullWidth variant="contained">
-          <LockIcon className={classes.lockIcon} />
-          <Typography className={classes.buttonText}>Checkout</Typography>
-        </Button>
+
+        <FormControl fullWidth>
+          <Link to={`/payment`} className={classes.link}>
+            <Button className={classes.button} variant="contained" fullWidth>
+              <LockIcon className={classes.lockIcon} />
+              <Typography className={classes.buttonText}>Checkout</Typography>
+            </Button>
+          </Link>
+        </FormControl>
       </Grid>
     </Container>
   );
