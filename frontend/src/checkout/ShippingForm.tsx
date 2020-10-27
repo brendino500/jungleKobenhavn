@@ -33,10 +33,17 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
   input: {
+    margin: 4,
     fontFamily: "Playfair Display",
     letterSpacing: 1,
-    color: "#1A3400",
-    margin: 4,
+    color: "#848380",
+    fontSize: 13,
+  },
+  inputText: {
+    fontFamily: "Playfair Display",
+    letterSpacing: 1,
+    color: "#848380",
+    fontSize: 13,
   },
   text: {
     fontFamily: "Playfair Display",
@@ -102,6 +109,17 @@ export default function ShippingForm() {
               label="Email"
               variant="outlined"
               color="secondary"
+              InputProps={{
+                classes: {
+                  input: classes.inputText,
+                },
+              }}
+              InputLabelProps={{
+                classes: {
+                  root: classes.inputText,
+                  focused: classes.inputText,
+                },
+              }}
             />
             <div className={classes.newsCheckbox}>
               <Checkbox
@@ -126,6 +144,17 @@ export default function ShippingForm() {
                   label="First Name"
                   variant="outlined"
                   color="primary"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
                 />
                 <TextField
                   className={classes.input}
@@ -134,6 +163,17 @@ export default function ShippingForm() {
                   label="Last Name"
                   variant="outlined"
                   color="primary"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
                 />
               </div>
               <TextField
@@ -143,6 +183,17 @@ export default function ShippingForm() {
                 label="Address"
                 variant="outlined"
                 color="primary"
+                InputProps={{
+                  classes: {
+                    input: classes.inputText,
+                  },
+                }}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.inputText,
+                    focused: classes.inputText,
+                  },
+                }}
               />
               <TextField
                 className={classes.input}
@@ -151,6 +202,17 @@ export default function ShippingForm() {
                 label="Apartment, suite, etc (optional)"
                 variant="outlined"
                 color="primary"
+                InputProps={{
+                  classes: {
+                    input: classes.inputText,
+                  },
+                }}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.inputText,
+                    focused: classes.inputText,
+                  },
+                }}
               />
               <TextField
                 className={classes.input}
@@ -159,10 +221,24 @@ export default function ShippingForm() {
                 label="City"
                 variant="outlined"
                 color="primary"
+                InputProps={{
+                  classes: {
+                    input: classes.inputText,
+                  },
+                }}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.inputText,
+                    focused: classes.inputText,
+                  },
+                }}
               />
               <div className={classes.doubleField}>
                 <FormControl variant="outlined" fullWidth>
-                  <InputLabel id="demo-simple-select-outlined-label">
+                  <InputLabel
+                    id="demo-simple-select-outlined-label"
+                    className={classes.input}
+                  >
                     Country
                   </InputLabel>
                   <Select
@@ -171,14 +247,20 @@ export default function ShippingForm() {
                     value={country}
                     onChange={handleChangeSelect}
                     label="Country"
-                    // fullWidth
                     className={classes.input}
                   >
-                    <MenuItem value="">
+                    <MenuItem value="" className={classes.inputText}>
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={"United Kingdom"}>United Kingdom</MenuItem>
-                    <MenuItem value={"Denmark"}>Denmark</MenuItem>
+                    <MenuItem
+                      className={classes.inputText}
+                      value={"United Kingdom"}
+                    >
+                      United Kingdom
+                    </MenuItem>
+                    <MenuItem className={classes.inputText} value={"Denmark"}>
+                      Denmark
+                    </MenuItem>
                   </Select>
                 </FormControl>
                 <TextField
@@ -187,7 +269,17 @@ export default function ShippingForm() {
                   id="outlined-basic"
                   label="Postcode"
                   variant="outlined"
-                  color="primary"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
                 />
               </div>
             </form>

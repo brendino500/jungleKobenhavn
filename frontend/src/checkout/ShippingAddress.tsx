@@ -1,5 +1,6 @@
 import React from "react";
 import PaymentForm from "./ShippingForm";
+import ShippingSummary from "./ShippingSummary";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
@@ -41,7 +42,7 @@ export default function ShippingAddress() {
           <PaymentForm />
         </div>
         <div className={classes.orderSummary}>
-          <Typography>Order summary</Typography>
+          <ShippingSummary />
         </div>
       </Grid>
     </Container>

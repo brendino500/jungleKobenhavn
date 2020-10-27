@@ -5,34 +5,34 @@ import SummaryCheckout from "./SummaryCheckout";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
 
-export default function Checkout() {
-  const useStyles = makeStyles({
-    root: {
-      margin: 2,
-    },
-    basket: {
-      flexGrow: 3,
-      flexDirection: "column",
-    },
-    summary: {
-      flexGrow: 1,
-    },
-    title: {
-      fontFamily: "Playfair Display",
-      fontSize: 30,
-      letterSpacing: 6,
-      fontWeight: "bold",
-      color: "#1A3400",
-      textTransform: "uppercase",
-      textAlign: "center",
-    },
-    text: {
-      fontFamily: "Open Sans",
-      fontSize: 16,
-      color: "#848380",
-    },
-  });
+const useStyles = makeStyles({
+  root: {
+    margin: 2,
+  },
+  basket: {
+    flexGrow: 3,
+    flexDirection: "column",
+  },
+  summary: {
+    flexGrow: 1,
+  },
+  title: {
+    fontFamily: "Playfair Display",
+    fontSize: 30,
+    letterSpacing: 6,
+    fontWeight: "bold",
+    color: "#1A3400",
+    textTransform: "uppercase",
+    textAlign: "center",
+  },
+  text: {
+    fontFamily: "Open Sans",
+    fontSize: 16,
+    color: "#848380",
+  },
+});
 
+export default function Checkout() {
   const classes = useStyles();
 
   return (
