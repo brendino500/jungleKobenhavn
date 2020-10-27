@@ -15,55 +15,61 @@ import {
   FormControl,
 } from "@material-ui/core";
 
-export default function PaymentForm() {
-  const useStyles = makeStyles({
-    root: {
-      margin: 2,
-    },
-    form: {
-      margin: 2,
-      fontFamily: "Playfair Display",
-    },
-    title: {
-      fontFamily: "Playfair Display",
-      fontSize: 30,
-      letterSpacing: 6,
-      fontWeight: "bold",
-      color: "#1A3400",
-      textTransform: "uppercase",
-      textAlign: "center",
-    },
-    input: {
-      fontFamily: "Playfair Display",
-      letterSpacing: 1,
-      color: "#1A3400",
-      margin: 4,
-    },
-    text: {
-      fontFamily: "Playfair Display",
-      letterSpacing: 1,
-      color: "#1A3400",
-    },
-    smallText: {
-      fontFamily: "Open Sans",
-      color: "#848380",
-      fontSize: 12,
-    },
-    newsCheckbox: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-    },
-    shippingAddress: {
-      display: "flex",
-      flexDirection: "column",
-    },
-    nameFields: {
-      display: "flex",
-      flexDirection: "row",
-    },
-  });
+const useStyles = makeStyles({
+  root: {
+    margin: 2,
+  },
+  form: {
+    margin: 2,
+    fontFamily: "Playfair Display",
+  },
+  title: {
+    fontFamily: "Playfair Display",
+    fontSize: 30,
+    letterSpacing: 6,
+    fontWeight: "bold",
+    color: "#1A3400",
+    textTransform: "uppercase",
+    textAlign: "center",
+  },
+  input: {
+    fontFamily: "Playfair Display",
+    letterSpacing: 1,
+    color: "#1A3400",
+    margin: 4,
+  },
+  text: {
+    fontFamily: "Playfair Display",
+    letterSpacing: 1,
+    color: "#1A3400",
+  },
+  smallText: {
+    fontFamily: "Open Sans",
+    color: "#848380",
+    fontSize: 12,
+  },
+  newsCheckbox: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  shippingAddress: {
+    display: "flex",
+    flexDirection: "column",
+    marginTop: "5%",
+  },
+  doubleField: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  emailInfo: {
+    margin: 5,
+    display: "flex",
+    flexDirection: "column",
+  },
+});
 
+export default function ShippingForm() {
   const classes = useStyles();
   const [checked, setChecked] = React.useState(true);
   const [country, setCountry] = React.useState("");
@@ -78,37 +84,41 @@ export default function PaymentForm() {
 
   return (
     <ThemeProvider theme={ColorTheme}>
-      <Container className={classes.root}>
+      <Container className={classes.root} maxWidth="md">
         <Grid
           container
           direction="column"
           justify="flex-start"
           alignItems="center"
         >
-          <Typography className={classes.text}>Contact Information</Typography>
-          <TextField
-            className={classes.input}
-            fullWidth
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            color="secondary"
-          />
-          <div className={classes.newsCheckbox}>
-            <Checkbox
-              checked={checked}
-              onChange={handleChange}
-              inputProps={{ "aria-label": "primary checkbox" }}
-            />
-            <Typography className={classes.smallText}>
-              Keep me up to date on news and exlusive offers
+          <Container className={classes.emailInfo}>
+            <Typography className={classes.text}>
+              Contact Information
             </Typography>
-          </div>
+            <TextField
+              className={classes.input}
+              fullWidth
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              color="secondary"
+            />
+            <div className={classes.newsCheckbox}>
+              <Checkbox
+                checked={checked}
+                onChange={handleChange}
+                inputProps={{ "aria-label": "primary checkbox" }}
+              />
+              <Typography className={classes.smallText}>
+                Keep me up to date on news and exlusive offers
+              </Typography>
+            </div>
+          </Container>
 
           <div className={classes.shippingAddress}>
             <Typography className={classes.text}>Shipping Address</Typography>
             <form className={classes.form} autoComplete="off">
-              <div className={classes.nameFields}>
+              <div className={classes.doubleField}>
                 <TextField
                   className={classes.input}
                   fullWidth
@@ -150,8 +160,8 @@ export default function PaymentForm() {
                 variant="outlined"
                 color="primary"
               />
-              <div className={classes.nameFields}>
-                <FormControl variant="outlined">
+              <div className={classes.doubleField}>
+                <FormControl variant="outlined" fullWidth>
                   <InputLabel id="demo-simple-select-outlined-label">
                     Country
                   </InputLabel>
@@ -161,7 +171,8 @@ export default function PaymentForm() {
                     value={country}
                     onChange={handleChangeSelect}
                     label="Country"
-                    fullWidth
+                    // fullWidth
+                    className={classes.input}
                   >
                     <MenuItem value="">
                       <em>None</em>

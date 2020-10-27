@@ -1,8 +1,8 @@
 import React from "react";
-import PaymentForm from "./PaymentForm";
+import PaymentForm from "./ShippingForm";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography } from "@material-ui/core";
+import { Container, Typography, Grid } from "@material-ui/core";
 
 export default function ShippingAddress() {
   const useStyles = makeStyles({
@@ -31,12 +31,19 @@ export default function ShippingAddress() {
 
   return (
     <Container className={classes.root}>
-      <div className={classes.shippingAddress}>
-        <PaymentForm />
-      </div>
-      <div className={classes.orderSummary}>
-        <Typography>Order summary</Typography>
-      </div>
+      <Grid
+        container
+        direction="row"
+        justify="space-around"
+        alignItems="flex-start"
+      >
+        <div className={classes.shippingAddress}>
+          <PaymentForm />
+        </div>
+        <div className={classes.orderSummary}>
+          <Typography>Order summary</Typography>
+        </div>
+      </Grid>
     </Container>
   );
 }
