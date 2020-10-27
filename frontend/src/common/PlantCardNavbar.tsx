@@ -11,7 +11,9 @@ import {
   Card,
   CardContent,
   CardMedia,
+  IconButton,
 } from "@material-ui/core";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 const useStyles = makeStyles({
   root: {},
@@ -32,6 +34,7 @@ const useStyles = makeStyles({
   content: {
     backgroundColor: "#C1BFBB",
     display: "flex",
+    position: "relative",
   },
   card: {
     elevation: 0,
@@ -43,6 +46,13 @@ const useStyles = makeStyles({
   },
   link: {
     textDecoration: "none",
+  },
+  cancelIcon: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    color: "#365902",
+    fontSize: 15,
   },
 });
 
@@ -75,12 +85,18 @@ export default function PlantCardNavbar() {
             >
               <Card className={classes.card} elevation={0}>
                 <div className={classes.cardContent}>
+                  {/* <IconButton */}
+
                   <CardMedia
                     className={classes.image}
                     image={plant.image}
                     title={plant.name}
                   />
                   <CardContent className={classes.content}>
+                    <IconButton className={classes.cancelIcon}>
+                      <CancelIcon className={classes.cancelIcon} />
+                    </IconButton>
+
                     <Typography className={classes.plantName}>
                       {plant.name}
                     </Typography>

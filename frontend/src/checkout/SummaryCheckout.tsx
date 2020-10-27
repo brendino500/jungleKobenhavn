@@ -3,6 +3,7 @@ import { BasketContext } from "../providers/BasketContext";
 import { getPlantsInBasket } from "../lib/api";
 import { PlantType } from "../plants/PlantType";
 import { totalCostOfBasket } from "../utils/methods";
+import ColorTheme from "../ColorTheme";
 
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,6 +17,7 @@ import {
   MenuItem,
   InputLabel,
   Button,
+  ThemeProvider,
 } from "@material-ui/core";
 import LockIcon from "@material-ui/icons/Lock";
 
@@ -144,31 +146,33 @@ export default function SummaryCheckout() {
           <Typography className={classes.text}>Shipping</Typography>
           <Typography className={classes.text}>{shippingTotal()}</Typography>
         </Grid>
-        <FormControl
-          variant="outlined"
-          fullWidth
-          className={classes.deliverySelect}
-        >
-          <InputLabel id="shipping" className={classes.selectText}>
-            Delivery
-          </InputLabel>
-          <Select
-            className={classes.selectButton}
-            labelId="shipping"
-            id="shipping"
-            value={shipping}
-            onChange={handleChange}
-            label="shipping"
+        <ThemeProvider theme={ColorTheme}>
+          <FormControl
+            variant="outlined"
             fullWidth
+            className={classes.deliverySelect}
           >
-            <MenuItem className={classes.menuItems} value={7}>
-              Delivery - £7.00
-            </MenuItem>
-            <MenuItem value={0} className={classes.menuItems}>
-              Pickup in Store - FREE
-            </MenuItem>
-          </Select>
-        </FormControl>
+            <InputLabel id="shipping" className={classes.selectText}>
+              Delivery
+            </InputLabel>
+            <Select
+              className={classes.selectButton}
+              labelId="shipping"
+              id="shipping"
+              value={shipping}
+              onChange={handleChange}
+              label="shipping"
+              fullWidth
+            >
+              <MenuItem className={classes.menuItems} value={7}>
+                Delivery - £7.00
+              </MenuItem>
+              <MenuItem value={0} className={classes.menuItems}>
+                Pickup in Store - FREE
+              </MenuItem>
+            </Select>
+          </FormControl>
+        </ThemeProvider>
         <Divider />
         <Grid
           container
