@@ -17,10 +17,13 @@ import {
 
 const useStyles = makeStyles({
   root: {
-    margin: 2,
+    "& > *": {
+      margin: 2,
+      width: "75ch",
+    },
   },
   form: {
-    margin: 2,
+    // margin: 2,
     fontFamily: "Playfair Display",
   },
   title: {
@@ -31,6 +34,10 @@ const useStyles = makeStyles({
     color: "#1A3400",
     textTransform: "uppercase",
     textAlign: "center",
+  },
+  middleForm: {
+    display: "flex",
+    flexDirection: "column",
   },
   input: {
     margin: 4,
@@ -105,6 +112,7 @@ export default function ShippingForm() {
             <TextField
               className={classes.input}
               fullWidth
+              required
               id="outlined-basic"
               label="Email"
               variant="outlined"
@@ -133,13 +141,14 @@ export default function ShippingForm() {
             </div>
           </Container>
 
-          <div className={classes.shippingAddress}>
+          <Container className={classes.shippingAddress}>
             <Typography className={classes.text}>Shipping Address</Typography>
             <form className={classes.form} autoComplete="off">
               <div className={classes.doubleField}>
                 <TextField
                   className={classes.input}
                   fullWidth
+                  required
                   id="outlined-basic"
                   label="First Name"
                   variant="outlined"
@@ -159,6 +168,7 @@ export default function ShippingForm() {
                 <TextField
                   className={classes.input}
                   fullWidth
+                  required
                   id="outlined-basic"
                   label="Last Name"
                   variant="outlined"
@@ -176,68 +186,73 @@ export default function ShippingForm() {
                   }}
                 />
               </div>
-              <TextField
-                className={classes.input}
-                fullWidth
-                id="outlined-basic"
-                label="Address"
-                variant="outlined"
-                color="primary"
-                InputProps={{
-                  classes: {
-                    input: classes.inputText,
-                  },
-                }}
-                InputLabelProps={{
-                  classes: {
-                    root: classes.inputText,
-                    focused: classes.inputText,
-                  },
-                }}
-              />
-              <TextField
-                className={classes.input}
-                fullWidth
-                id="outlined-basic"
-                label="Apartment, suite, etc (optional)"
-                variant="outlined"
-                color="primary"
-                InputProps={{
-                  classes: {
-                    input: classes.inputText,
-                  },
-                }}
-                InputLabelProps={{
-                  classes: {
-                    root: classes.inputText,
-                    focused: classes.inputText,
-                  },
-                }}
-              />
-              <TextField
-                className={classes.input}
-                fullWidth
-                id="outlined-basic"
-                label="City"
-                variant="outlined"
-                color="primary"
-                InputProps={{
-                  classes: {
-                    input: classes.inputText,
-                  },
-                }}
-                InputLabelProps={{
-                  classes: {
-                    root: classes.inputText,
-                    focused: classes.inputText,
-                  },
-                }}
-              />
+              <div className={classes.middleForm}>
+                <TextField
+                  className={classes.input}
+                  fullWidth
+                  required
+                  id="outlined-basic"
+                  label="Address"
+                  variant="outlined"
+                  color="primary"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
+                />
+                <TextField
+                  className={classes.input}
+                  fullWidth
+                  id="outlined-basic"
+                  label="Apartment, suite, etc (optional)"
+                  variant="outlined"
+                  color="primary"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
+                />
+                <TextField
+                  className={classes.input}
+                  fullWidth
+                  required
+                  id="outlined-basic"
+                  label="City"
+                  variant="outlined"
+                  color="primary"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
+                />
+              </div>
               <div className={classes.doubleField}>
                 <FormControl variant="outlined" fullWidth>
                   <InputLabel
                     id="demo-simple-select-outlined-label"
                     className={classes.input}
+                    required
                   >
                     Country
                   </InputLabel>
@@ -266,6 +281,7 @@ export default function ShippingForm() {
                 <TextField
                   className={classes.input}
                   fullWidth
+                  required
                   id="outlined-basic"
                   label="Postcode"
                   variant="outlined"
@@ -283,7 +299,7 @@ export default function ShippingForm() {
                 />
               </div>
             </form>
-          </div>
+          </Container>
         </Grid>
       </Container>
     </ThemeProvider>

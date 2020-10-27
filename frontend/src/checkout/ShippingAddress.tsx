@@ -10,18 +10,10 @@ export default function ShippingAddress() {
     root: {
       margin: 2,
     },
-    title: {
-      fontFamily: "Playfair Display",
-      fontSize: 30,
-      letterSpacing: 6,
-      fontWeight: "bold",
-      color: "#1A3400",
-      textTransform: "uppercase",
-      textAlign: "center",
-    },
     shippingAddress: {
       margin: 2,
       flexGrow: 3,
+      flexDirection: "column",
     },
     orderSummary: {
       flexGrow: 1,
