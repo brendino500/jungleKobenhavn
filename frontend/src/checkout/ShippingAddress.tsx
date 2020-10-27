@@ -1,9 +1,10 @@
 import React from "react";
+import PaymentForm from "./PaymentForm";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography, Grid } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
-export default function Payment() {
+export default function ShippingAddress() {
   const useStyles = makeStyles({
     root: {
       margin: 2,
@@ -17,13 +18,25 @@ export default function Payment() {
       textTransform: "uppercase",
       textAlign: "center",
     },
+    shippingAddress: {
+      margin: 2,
+      flexGrow: 3,
+    },
+    orderSummary: {
+      flexGrow: 1,
+    },
   });
 
   const classes = useStyles();
 
   return (
     <Container className={classes.root}>
-      <Typography className={classes.title}>Payment Page</Typography>
+      <div className={classes.shippingAddress}>
+        <PaymentForm />
+      </div>
+      <div className={classes.orderSummary}>
+        <Typography>Order summary</Typography>
+      </div>
     </Container>
   );
 }

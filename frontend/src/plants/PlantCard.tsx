@@ -12,6 +12,7 @@ import {
   Button,
   Typography,
   Grid,
+  Snackbar,
 } from "@material-ui/core";
 import { PlantType } from "./PlantType";
 
@@ -48,14 +49,29 @@ const useStyles = makeStyles({
   link: {
     textDecoration: "none",
   },
+  snackbar: {
+    color: "#EBE8E5",
+    fontFamily: "Playfair Display",
+    backgroundColor: "#497702",
+    textAlign: "center",
+  },
 });
 
 export default function PlantCard(props: PlantType) {
   const [basketState, setBasketState] = React.useContext(BasketContext);
+  const [open, setOpen] = React.useState(false);
   const classes = useStyles();
 
   const handleAddToBasket = () => {
     (setBasketState as Function)((basketState as string[]).concat([props._id]));
+    setOpen(true);
+  };
+
+  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
   };
 
   return (
@@ -81,6 +97,21 @@ export default function PlantCard(props: PlantType) {
           >
             Add to Basket
           </Button>
+          <Snackbar
+            ContentProps={{
+              classes: {
+                root: classes.snackbar,
+              },
+            }}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+            open={open}
+            autoHideDuration={3000}
+            onClose={handleClose}
+            message={`You have added ${props.name} to your basket`}
+          />
         </Grid>
       </CardActions>
     </Card>

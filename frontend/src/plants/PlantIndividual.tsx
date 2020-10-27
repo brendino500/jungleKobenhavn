@@ -1,7 +1,6 @@
 import React from "react";
 import { BasketContext } from "../providers/BasketContext";
 import { showSinglePlant } from "../lib/api";
-// import { popupNotification } from "../lib/notification";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -11,7 +10,6 @@ import {
   Button,
   Snackbar,
 } from "@material-ui/core";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles({
   root: {
@@ -62,6 +60,7 @@ const useStyles = makeStyles({
     color: "#EBE8E5",
     fontFamily: "Playfair Display",
     backgroundColor: "#497702",
+    textAlign: "center",
   },
 });
 
