@@ -4,7 +4,7 @@ import { PlantType } from "../plants/PlantType";
 import { getPlantsInBasket } from "../lib/api";
 import { totalCostOfBasket } from "../utils/methods";
 
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import {
   fade,
   makeStyles,
@@ -175,7 +175,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
-export default function Navbar(props: ComponentPropsWithoutRef<any>) {
+function Navbar(props: ComponentPropsWithoutRef<any>) {
   const classes = useStyles();
 
   const [search, setSearch] = React.useState("");
@@ -207,7 +207,7 @@ export default function Navbar(props: ComponentPropsWithoutRef<any>) {
       event.type === "keydown" &&
       (event as React.KeyboardEvent).key === "Enter"
     ) {
-      props.history.push(`/plants/${search}`);
+      props.history.push(`/plants?search=${search}`);
     }
   };
 
@@ -378,3 +378,5 @@ export default function Navbar(props: ComponentPropsWithoutRef<any>) {
     </div>
   );
 }
+
+export default withRouter(Navbar);
