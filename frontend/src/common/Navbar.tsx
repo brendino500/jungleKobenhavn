@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import { PlantType } from "../plants/PlantType";
 import { getPlantsInBasket } from "../lib/api";
@@ -22,6 +22,7 @@ import {
   Grid,
   IconButton,
   Badge,
+  FormControl,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ListItem from "@material-ui/core/ListItem";
@@ -29,6 +30,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PlantCardNavbar from "./PlantCardNavbar";
 import { BasketContext } from "../providers/BasketContext";
+import { eventNames } from "cluster";
 
 const drawerWidth = 240;
 
@@ -173,8 +175,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
-export default function Navbar() {
+export default function Navbar(props: ComponentPropsWithoutRef<any>) {
   const classes = useStyles();
+
+  const [search, setSearch] = React.useState("");
   const [basketState, setBasketState] = React.useContext(BasketContext);
   const [state, setState] = React.useState({
     top: false,
@@ -193,6 +197,19 @@ export default function Navbar() {
       }
     );
   }, [basketState]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
+
+  const onKeyDown = (event: React.KeyboardEvent) => {
+    if (
+      event.type === "keydown" &&
+      (event as React.KeyboardEvent).key === "Enter"
+    ) {
+      props.history.push(`/plants/${search}`);
+    }
+  };
 
   const toggleDrawer = (anchor: Anchor, open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent
@@ -246,15 +263,19 @@ export default function Navbar() {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
-              className={classes.searchText}
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
+            <FormControl>
+              <InputBase
+                className={classes.searchText}
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ "aria-label": "search" }}
+                onChange={handleChange}
+                onKeyDown={onKeyDown}
+              />
+            </FormControl>
           </div>
           <Grid
             container
