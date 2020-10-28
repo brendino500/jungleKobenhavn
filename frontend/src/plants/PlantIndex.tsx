@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import { getAllPlants } from "../lib/api";
 import { PlantType } from "./PlantType";
 import PlantCard from "./PlantCard";
@@ -6,7 +6,7 @@ import PlantCard from "./PlantCard";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
 
-export default function PlantIndex() {
+export default function PlantIndex(props: ComponentPropsWithoutRef<any>) {
   const useStyles = makeStyles({
     root: {
       padding: 10,
@@ -35,6 +35,12 @@ export default function PlantIndex() {
     getData();
   }, []);
 
+  const filtered = () => {
+    const searchTerm = props.location.search.replace("?search=", "");
+    const re = new RegExp(searchTerm, "i");
+    return data.filter((plant: PlantType) => re.test(plant.name));
+  };
+
   if (!data) return null;
   return (
     <div className={classes.root}>
@@ -48,7 +54,7 @@ export default function PlantIndex() {
           justify="space-evenly"
           alignItems="center"
         >
-          {data.map((plant: PlantType) => (
+          {filtered().map((plant: PlantType) => (
             <PlantCard key={plant._id} {...plant} />
           ))}
         </Grid>
