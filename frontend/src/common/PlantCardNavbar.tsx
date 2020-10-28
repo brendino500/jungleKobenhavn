@@ -35,6 +35,7 @@ const useStyles = makeStyles({
     backgroundColor: "#C1BFBB",
     display: "flex",
     position: "relative",
+    flex: "1 0 auto",
   },
   card: {
     elevation: 0,
@@ -71,6 +72,12 @@ export default function PlantCardNavbar() {
     );
   }, []);
 
+  const handleClickDelete = () => {
+    //
+    //
+    //
+  };
+
   return (
     <Container className={classes.root}>
       {plantsInBasket.map((plant: PlantType | undefined) => {
@@ -96,13 +103,14 @@ export default function PlantCardNavbar() {
                     <IconButton className={classes.cancelIcon}>
                       <CancelIcon className={classes.cancelIcon} />
                     </IconButton>
-
-                    <Typography className={classes.plantName}>
-                      {plant.name}
-                    </Typography>
-                    <Typography className={classes.price}>
-                      £{plant.price}
-                    </Typography>
+                    <div>
+                      <Typography className={classes.plantName}>
+                        {plant.name}
+                      </Typography>
+                      <Typography className={classes.price}>
+                        £{plant.price}
+                      </Typography>
+                    </div>
                   </CardContent>
                 </div>
               </Card>

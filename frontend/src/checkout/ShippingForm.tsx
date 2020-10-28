@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     },
   },
   form: {
-    // margin: 2,
     fontFamily: "Playfair Display",
   },
   title: {
@@ -98,12 +97,12 @@ export default function ShippingForm() {
 
   return (
     <ThemeProvider theme={ColorTheme}>
-      <Container className={classes.root} maxWidth="md">
+      <Container className={classes.root}>
         <Grid
           container
           direction="column"
           justify="flex-start"
-          alignItems="center"
+          alignItems="flex-start"
         >
           <Container className={classes.emailInfo}>
             <Typography className={classes.text}>

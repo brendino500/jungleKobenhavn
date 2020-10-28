@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: "flex",
       flexDirection: "column",
-      padding: 0,
     },
     card: {
+      width: "sm",
       margin: 5,
     },
     details: {
@@ -32,17 +32,16 @@ const useStyles = makeStyles((theme: Theme) =>
       flex: "1 0 auto",
     },
     image: {
-      width: 100,
-      height: 100,
+      width: 75,
+      height: 75,
     },
     plantName: {
       fontFamily: "Playfair Display",
       color: "#1A3400",
+      fontSize: 12,
     },
     link: {
       textDecoration: "none",
-      width: "md",
-      padding: 0,
     },
     cardContent: {
       display: "flex",
@@ -50,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     price: {
       fontFamily: "Playfair Display",
-      fontSize: 16,
+      fontSize: 12,
       color: "#365902",
     },
   })
@@ -97,17 +96,13 @@ export default function PlantCardCheckout() {
                       justify="space-between"
                       alignItems="center"
                     >
-                      <div>
-                        <Typography className={classes.plantName}>
-                          {plant.name}
-                        </Typography>
-                      </div>
+                      <Typography className={classes.plantName}>
+                        {plant.name}
+                      </Typography>
 
-                      <div>
-                        <Typography className={classes.price}>
-                          £{plant.price}
-                        </Typography>
-                      </div>
+                      <Typography className={classes.price}>
+                        £{plant.price}
+                      </Typography>
                     </Grid>
                   </CardContent>
                 </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import PaymentForm from "./ShippingForm";
+import ShippingForm from "./ShippingForm";
 import ShippingSummary from "./ShippingSummary";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,11 +12,17 @@ export default function ShippingAddress() {
     },
     shippingAddress: {
       margin: 2,
+      display: "flex",
       flexGrow: 3,
       flexDirection: "column",
     },
     orderSummary: {
       flexGrow: 1,
+      display: "flex",
+    },
+    grid: {
+      display: "flex",
+      flexWrap: "nowrap",
     },
   });
 
@@ -29,9 +35,10 @@ export default function ShippingAddress() {
         direction="row"
         justify="space-around"
         alignItems="flex-start"
+        className={classes.grid}
       >
         <div className={classes.shippingAddress}>
-          <PaymentForm />
+          <ShippingForm />
         </div>
         <div className={classes.orderSummary}>
           <ShippingSummary />

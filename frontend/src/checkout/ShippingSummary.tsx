@@ -1,5 +1,5 @@
 import React from "react";
-import PlantCardCheckout from "./PlantCardCheckout";
+import PlantCardShipping from "./PlantCardShipping";
 import { BasketContext } from "../providers/BasketContext";
 import { getPlantsInBasket } from "../lib/api";
 import { PlantType } from "../plants/PlantType";
@@ -17,6 +17,7 @@ import LockIcon from "@material-ui/icons/Lock";
 const useStyles = makeStyles({
   root: {
     margin: 2,
+    padding: 0,
   },
   title: {
     fontFamily: "Playfair Display",
@@ -65,7 +66,7 @@ export default function ShippingSummary() {
   }, [basketState]);
 
   return (
-    <Container className={classes.root} maxWidth="sm">
+    <Container className={classes.root}>
       <Grid
         container
         direction="column"
@@ -73,7 +74,7 @@ export default function ShippingSummary() {
         alignItems="flex-start"
       >
         <Typography className={classes.title}>Summary</Typography>
-        <PlantCardCheckout />
+        <PlantCardShipping />
         <Divider />
         <Grid
           className={classes.summaryTotals}

@@ -113,8 +113,6 @@ export default function SummaryCheckout() {
   const shippingCost = typeof shipping === "number" ? shipping : 0;
   const totalCost = totalCostOfBasket(plantsInBasket) + shippingCost;
 
-  console.log("ordersummary", shipping);
-
   return (
     <Container className={classes.root}>
       <Typography className={classes.title}>Order Summary</Typography>
