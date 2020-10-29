@@ -129,10 +129,10 @@ export default function ShippingSummary() {
             </Typography>
           </Grid>
           <Link to={`/payment`} className={classes.link}>
-            <Button variant="contained" fullWidth className={classes.button}>
+            <Button fullWidth variant="contained" className={classes.button}>
               <LockIcon className={classes.lockIcon} />
               <Typography className={classes.buttonText}>
-                Continue to secure payment
+                Continue to secure paymen
               </Typography>
             </Button>
           </Link>

@@ -158,9 +158,12 @@ export default function JokePayment() {
               of coding.
               {<br />}
               {<br />}
-              I'm currently looking for a front end developer role. If you would
-              like to see more of my projects or even give me a stalk, please
-              check out these links below:
+              I'm currently looking for a front end developer role as I want to
+              learn from others and share my creativity.
+              {<br />}
+              {<br />}
+              If you would like to see more of my projects or even give me a
+              stalk, please check out these links below:
             </Typography>
             <List className={classes.contactList}>
               <a
