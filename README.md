@@ -109,6 +109,8 @@ return (
 
 - I want to really **hone in my skills with Material**. I realised at the end of my project that **I wasn't using it to it's full extent.** A lot of my styling is defined in the component files which can make the file very long. **In future I will be strict with the `ThemeProvider` component** to store all the CSS in one file and import it to component file so it will therefore be **smaller and easier to read.**
 
+- **Once I learn and get more comfortable with TypeScript I will probably change some of the inevitable mistakes that I have made.** (lol)
+
 ---
 
 ## :bulb: Sources
