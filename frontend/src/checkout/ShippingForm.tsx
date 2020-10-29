@@ -55,6 +55,8 @@ const useStyles = makeStyles({
     fontFamily: "Playfair Display",
     letterSpacing: 1,
     color: "#1A3400",
+    fontSize: 18,
+    margin: 2,
   },
   smallText: {
     fontFamily: "Open Sans",
@@ -135,7 +137,7 @@ export default function ShippingForm() {
                 inputProps={{ "aria-label": "primary checkbox" }}
               />
               <Typography className={classes.smallText}>
-                Keep me up to date on news and exlusive offers
+                Keep me up to date on news and exclusive offers
               </Typography>
             </div>
           </Container>
