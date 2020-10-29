@@ -3,7 +3,9 @@ import PlantCardShipping from "./PlantCardShipping";
 import { BasketContext } from "../providers/BasketContext";
 import { getPlantsInBasket } from "../lib/api";
 import { PlantType } from "../plants/PlantType";
+import { totalCostOfBasket } from "../utils/methods";
 
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -24,6 +26,12 @@ const useStyles = makeStyles({
     fontSize: 18,
     color: "#1A3400",
     letterSpacing: 2,
+  },
+  largeText: {
+    fontFamily: "Open Sans",
+    color: "#1A3400",
+    fontSize: 20,
+    marginTop: "3%",
   },
   textSmall: {
     fontFamily: "Open Sans",
@@ -48,11 +56,15 @@ const useStyles = makeStyles({
     fontSize: 12,
     marginRight: "4%",
   },
+  link: {
+    textDecoration: "none",
+  },
 });
 
 export default function ShippingSummary() {
   const classes = useStyles();
   const [basketState, setBasketState] = React.useContext(BasketContext);
+  const [shipping, setShipping] = React.useState<string | undefined>("");
   const [plantsInBasket, setPlantsInBasket] = React.useState<
     (PlantType | undefined)[]
   >([]);
@@ -64,6 +76,9 @@ export default function ShippingSummary() {
       }
     );
   }, [basketState]);
+
+  const shippingCost = typeof shipping === "number" ? shipping : 0;
+  const totalCost = totalCostOfBasket(plantsInBasket) + shippingCost;
 
   return (
     <Container className={classes.root}>
@@ -102,12 +117,25 @@ export default function ShippingSummary() {
             <Typography className={classes.textSmall}>£.00</Typography>
           </Grid>
           <Divider />
-          <Button variant="contained" fullWidth className={classes.button}>
-            <LockIcon className={classes.lockIcon} />
-            <Typography className={classes.buttonText}>
-              Continue to secure payment
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="flex-start"
+          >
+            <Typography className={classes.largeText}>Total</Typography>
+            <Typography className={classes.largeText}>
+              £{totalCostOfBasket}.00
             </Typography>
-          </Button>
+          </Grid>
+          <Link to={`/payment`} className={classes.link}>
+            <Button variant="contained" fullWidth className={classes.button}>
+              <LockIcon className={classes.lockIcon} />
+              <Typography className={classes.buttonText}>
+                Continue to secure payment
+              </Typography>
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </Container>

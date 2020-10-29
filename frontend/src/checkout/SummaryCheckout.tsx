@@ -21,69 +21,69 @@ import {
 } from "@material-ui/core";
 import LockIcon from "@material-ui/icons/Lock";
 
-export default function SummaryCheckout() {
-  const useStyles = makeStyles({
-    root: {
-      margin: 5,
-      width: "auto",
-    },
-    title: {
-      fontFamily: "Playfair Display",
-      fontWeight: "bold",
-      fontSize: 18,
-      color: "#848380",
-      marginTop: 12,
-      letterSpacing: 3,
-    },
-    text: {
-      marginTop: "5%",
-      fontFamily: "Open Sans",
-      fontSize: 14,
-      color: "#848380",
-    },
-    smallText: {
-      marginTop: "5%",
-      fontFamily: "Open Sans",
-      fontSize: 10,
-      color: "#848380",
-    },
-    deliverySelect: {
-      marginTop: 10,
-    },
-    selectText: {
-      fontFamily: "Open Sans",
-      fontSize: 14,
-      color: "#848380",
-    },
-    selectButton: {
-      color: "#848380",
-      fontFamily: "Open Sans",
-      fontSize: 14,
-    },
-    menuItems: {
-      fontFamily: "Open Sans",
-      fontSize: 14,
-    },
-    button: {
-      backgroundColor: "#25462e",
-      marginTop: "5%",
-    },
-    buttonText: {
-      fontFamily: "Playfair Display",
-      fontSize: 12,
-      color: "#EBE8E5",
-      letterSpacing: 2,
-    },
-    lockIcon: {
-      color: "#EBE8E5",
-      fontSize: 12,
-      marginRight: "4%",
-    },
-    link: {
-      textDecoration: "none",
-    },
-  });
+const useStyles = makeStyles({
+  root: {
+    margin: 5,
+    width: "auto",
+  },
+  title: {
+    fontFamily: "Playfair Display",
+    fontWeight: "bold",
+    fontSize: 18,
+    color: "#848380",
+    marginTop: 12,
+    letterSpacing: 3,
+  },
+  text: {
+    marginTop: "5%",
+    fontFamily: "Open Sans",
+    fontSize: 14,
+    color: "#848380",
+  },
+  smallText: {
+    marginTop: "5%",
+    fontFamily: "Open Sans",
+    fontSize: 10,
+    color: "#848380",
+  },
+  deliverySelect: {
+    marginTop: 10,
+  },
+  selectText: {
+    fontFamily: "Open Sans",
+    fontSize: 14,
+    color: "#848380",
+  },
+  selectButton: {
+    color: "#848380",
+    fontFamily: "Open Sans",
+    fontSize: 14,
+  },
+  menuItems: {
+    fontFamily: "Open Sans",
+    fontSize: 14,
+  },
+  button: {
+    backgroundColor: "#25462e",
+    marginTop: "5%",
+  },
+  buttonText: {
+    fontFamily: "Playfair Display",
+    fontSize: 12,
+    color: "#EBE8E5",
+    letterSpacing: 2,
+  },
+  lockIcon: {
+    color: "#EBE8E5",
+    fontSize: 12,
+    marginRight: "4%",
+  },
+  link: {
+    textDecoration: "none",
+  },
+});
 
+export default function SummaryCheckout() {
   const classes = useStyles();
   const [shipping, setShipping] = React.useState<string | undefined>("");
   const [basketState, setBasketState] = React.useContext(BasketContext);
@@ -186,7 +186,7 @@ export default function SummaryCheckout() {
         </Typography>
 
         <FormControl fullWidth>
-          <Link to={`/payment`} className={classes.link}>
+          <Link to={`/shipping`} className={classes.link}>
             <Button className={classes.button} variant="contained" fullWidth>
               <LockIcon className={classes.lockIcon} />
               <Typography className={classes.buttonText}>Checkout</Typography>

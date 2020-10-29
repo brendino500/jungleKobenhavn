@@ -6,6 +6,7 @@ import PlantIndex from "./plants/PlantIndex";
 import Contact from "./about/Contact";
 import Checkout from "./checkout/Checkout";
 import ShippingAddress from "./checkout/ShippingAddress";
+import JokePayment from "./checkout/JokePayment";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { BasketProvider } from "./providers/BasketContext";
@@ -21,7 +22,8 @@ function App() {
           <Route path="/plants" component={PlantIndex} />
           <Route path="/contact" component={Contact} />
           <Route path="/checkout" component={Checkout} />
-          <Route path="/payment" component={ShippingAddress} />
+          <Route path="/shipping" component={ShippingAddress} />
+          <Route path="/payment" component={JokePayment} />
         </Switch>
       </BasketProvider>
     </BrowserRouter>
