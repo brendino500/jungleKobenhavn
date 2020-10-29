@@ -4,21 +4,21 @@ import PlantCardCheckout from "./PlantCardCheckout";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid, Divider } from "@material-ui/core";
 
-export default function BasketCheckout() {
-  const useStyles = makeStyles({
-    root: {
-      margin: 5,
-    },
-    title: {
-      fontFamily: "Playfair Display",
-      fontWeight: "bold",
-      fontSize: 18,
-      color: "#848380",
-      marginTop: 12,
-      letterSpacing: 3,
-    },
-  });
+const useStyles = makeStyles({
+  root: {
+    margin: 5,
+  },
+  title: {
+    fontFamily: "Playfair Display",
+    fontWeight: "bold",
+    fontSize: 18,
+    color: "#848380",
+    marginTop: 12,
+    letterSpacing: 3,
+  },
+});
 
+export default function BasketCheckout() {
   const classes = useStyles();
 
   return (

@@ -51,3 +51,71 @@
 - As I wanted to push myself with Material, I tried to implement a lot of Material components I had not used before. One of the main components is the side drawer which also acts as the basket.
 
 ![side-drawer-cart](readmeAssets/demo-of-website.gif)
+
+- I also pushed myself with **building up parent components with smaller children components.** This was the first project I had coded where **I really tried to exploit this React feature**. It's really satisfying nesting components into components and seeing smaller files, however this is where I realised that naming files are so important!
+
+<img src="https://i.ibb.co/xXVLVtT/example-of-nesting3.png" alt="example-of-nesting" width="500" >
+
+---
+
+## :mountain_snow: Challenges
+
+- This was my **first React project in TypeScript** (the backend was written in JavaScript). This was an **immense challenge** for me as I was only half way through a Udemy course. As I really put myself in the deep end, the process was a huge learning curve. I've never had to do so much Googling. I believe this was a good challenge as I forced myself to learn by doing. **There is still a lot to improve, but I feel that after this project I've got a stronger sense of understanding TypeScript.**
+
+```
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
+
+  const onKeyDown = (event: React.KeyboardEvent) => {
+    if (
+      event.type === "keydown" &&
+      (event as React.KeyboardEvent).key === "Enter"
+    ) {
+      props.history.push(`/plants?search=${search}`);
+    }
+  };
+
+  const toggleDrawer = (anchor: Anchor, open: boolean) => (
+    event: React.KeyboardEvent | React.MouseEvent
+  ) => {
+    if (
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" ||
+        (event as React.KeyboardEvent).key === "Shift")
+    ) {
+      return;
+    }
+```
+
+- In my previous project my team mate and I wanted to push ourselves with React Hooks. However, since we only had a 7 day deadline, we only wrote half of our code in Hooks and the other half Classical. Since then **I have read some React documentation and wanted to use `useContext()` functionality**. Again, I'm very **glad that I decided to use this as I feel like I have more of an understanding of React.**
+
+- Using this functionality, I had to make a `providers` file with `Context` files. By making a `basketContext` file, this had allowed me manipulate the state for each `Route path`.
+
+```import React, { createContext } from "react";
+
+export const BasketContext = createContext([[], () => {}]);
+
+export const BasketProvider = (props: any) => {
+const [basketState, setBasketState] = React.useState([]);
+
+return (
+<BasketContext.Provider value={[basketState, setBasketState]} {...props} />
+);
+};
+```
+
+## :building_construction: Future Development
+
+- I want to really **hone in my skills with Material**. I realised at the end of my project that **I wasn't using it to it's full extent.** A lot of my styling is defined in the component files which can make the file very long. **In future I will be strict with the `ThemeProvider` component** to store all the CSS in one file and import it to component file so it will therefore be **smaller and easier to read.**
+
+---
+
+## :bulb: Sources
+
+[Material UI](http://material-ui.com/)
+[Root Houseplants](https://www.root-houseplants.com/)
+[House of Kojo](https://www.houseofkojo.com/)
+[London House Plants](https://www.londonhouseplants.com/)
+[React Context](https://reactjs.org/docs/context.html)
+[Ollie Bannister](https://github.com/brendino500/todo-list-app)
