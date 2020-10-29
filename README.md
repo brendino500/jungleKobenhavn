@@ -50,4 +50,4 @@
 
 - As I wanted to push myself with Material, I tried to implement a lot of Material components I had not used before. One of the main components is the side drawer which also acts as the basket.
 
-![side-drawer-cart](https://i.ibb.co/XLm5HDz/jungle-kobenhavn-gif.gif)
+![side-drawer-cart](readmeAssets/demo-of-website.gif)

@@ -37,6 +37,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
   },
   button: {
     color: "#497702",
@@ -49,6 +50,11 @@ const useStyles = makeStyles({
     color: "#848380",
     fontSize: 14,
   },
+  header: {
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
   iconText: {
     fontFamily: "Open Sans",
     color: "#365902",
@@ -59,7 +65,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "row",
     maxWidth: 400,
-    marginTop: "7%",
+    marginTop: "1%",
   },
   icons: {
     color: "#365902",
@@ -75,6 +81,9 @@ export default function JokePayment() {
 
   return (
     <Container className={classes.root}>
+      <Container className={classes.header}>
+        <Typography className={classes.title}>Psyche!</Typography>
+      </Container>
       <Grid
         container
         direction="row"
@@ -82,9 +91,6 @@ export default function JokePayment() {
         alignItems="flex-start"
       >
         <div>
-          <Container>
-            <Typography className={classes.title}>Psyche!</Typography>
-          </Container>
           <Container maxWidth="sm" className={classes.textSection}>
             <Typography className={classes.text}>
               Unfortunately this isn't a real site (but I hope I fooled you!).
