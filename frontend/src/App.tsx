@@ -10,22 +10,25 @@ import JokePayment from "./checkout/JokePayment";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { BasketProvider } from "./providers/BasketContext";
+import { ShippingProvider } from "./providers/ShippingContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <BasketProvider>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/plants/:id" component={PlantIndividual} />
-          <Route path="/plants" component={PlantIndex} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/shipping" component={ShippingAddress} />
-          <Route path="/payment" component={JokePayment} />
-        </Switch>
-      </BasketProvider>
+      <ShippingProvider>
+        <BasketProvider>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/plants/:id" component={PlantIndividual} />
+            <Route path="/plants" component={PlantIndex} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/shipping" component={ShippingAddress} />
+            <Route path="/payment" component={JokePayment} />
+          </Switch>
+        </BasketProvider>
+      </ShippingProvider>
     </BrowserRouter>
   );
 }

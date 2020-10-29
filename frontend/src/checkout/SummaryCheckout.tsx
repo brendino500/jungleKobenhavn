@@ -1,5 +1,6 @@
 import React from "react";
 import { BasketContext } from "../providers/BasketContext";
+import { ShippingContext } from "../providers/ShippingContext";
 import { getPlantsInBasket } from "../lib/api";
 import { PlantType } from "../plants/PlantType";
 import { totalCostOfBasket } from "../utils/methods";
@@ -85,7 +86,7 @@ const useStyles = makeStyles({
 
 export default function SummaryCheckout() {
   const classes = useStyles();
-  const [shipping, setShipping] = React.useState<string | undefined>("");
+  const [shipping, setShipping] = React.useContext(ShippingContext);
   const [basketState, setBasketState] = React.useContext(BasketContext);
   const [plantsInBasket, setPlantsInBasket] = React.useState<
     (PlantType | undefined)[]
@@ -100,7 +101,7 @@ export default function SummaryCheckout() {
   }, [basketState]);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setShipping(event.target.value as string | undefined);
+    (setShipping as Function)(event.target.value as string | undefined);
   };
 
   const shippingTotal = () => {

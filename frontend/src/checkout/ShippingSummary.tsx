@@ -15,6 +15,7 @@ import {
   Button,
 } from "@material-ui/core";
 import LockIcon from "@material-ui/icons/Lock";
+import { ShippingContext } from "../providers/ShippingContext";
 
 const useStyles = makeStyles({
   root: {
@@ -64,7 +65,7 @@ const useStyles = makeStyles({
 export default function ShippingSummary() {
   const classes = useStyles();
   const [basketState, setBasketState] = React.useContext(BasketContext);
-  const [shipping, setShipping] = React.useState<string | undefined>("");
+  const [shipping, setShipping] = React.useContext(ShippingContext);
   const [plantsInBasket, setPlantsInBasket] = React.useState<
     (PlantType | undefined)[]
   >([]);
@@ -78,7 +79,8 @@ export default function ShippingSummary() {
   }, [basketState]);
 
   const shippingCost = typeof shipping === "number" ? shipping : 0;
-  const totalCost = totalCostOfBasket(plantsInBasket) + shippingCost;
+  const basketCost = totalCostOfBasket(plantsInBasket);
+  const totalCost = basketCost + shippingCost;
 
   return (
     <Container className={classes.root}>
@@ -105,7 +107,9 @@ export default function ShippingSummary() {
             alignItems="flex-start"
           >
             <Typography className={classes.textSmall}>Subtotal</Typography>
-            <Typography className={classes.textSmall}>£.00</Typography>
+            <Typography className={classes.textSmall}>
+              £{basketCost}.00
+            </Typography>
           </Grid>
           <Grid
             container
@@ -114,7 +118,9 @@ export default function ShippingSummary() {
             alignItems="flex-start"
           >
             <Typography className={classes.textSmall}>Shipping</Typography>
-            <Typography className={classes.textSmall}>£.00</Typography>
+            <Typography className={classes.textSmall}>
+              £{shippingCost}.00
+            </Typography>
           </Grid>
           <Divider />
           <Grid
@@ -125,14 +131,14 @@ export default function ShippingSummary() {
           >
             <Typography className={classes.largeText}>Total</Typography>
             <Typography className={classes.largeText}>
-              £{totalCostOfBasket}.00
+              £{totalCost}.00
             </Typography>
           </Grid>
           <Link to={`/payment`} className={classes.link}>
             <Button fullWidth variant="contained" className={classes.button}>
               <LockIcon className={classes.lockIcon} />
               <Typography className={classes.buttonText}>
-                Continue to secure paymen
+                Continue to secure payment
               </Typography>
             </Button>
           </Link>
