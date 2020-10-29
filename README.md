@@ -114,8 +114,13 @@ return (
 ## :bulb: Sources
 
 [Material UI](http://material-ui.com/)
+<br />
 [Ollie Bannister](https://github.com/brendino500/todo-list-app)
+<br />
 [React Context](https://reactjs.org/docs/context.html)
+<br />
 [Root Houseplants](https://www.root-houseplants.com/)
+<br />
 [House of Kojo](https://www.houseofkojo.com/)
+<br />
 [London House Plants](https://www.londonhouseplants.com/)
