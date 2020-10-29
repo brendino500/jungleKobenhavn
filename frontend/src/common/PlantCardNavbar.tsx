@@ -16,15 +16,22 @@ import {
 import CancelIcon from "@material-ui/icons/Cancel";
 
 const useStyles = makeStyles({
-  root: {},
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    overflow: "auto",
+    maxHeight: 450,
+  },
   image: {
-    height: 75,
-    width: 75,
+    height: 65,
+    width: 65,
   },
   plantName: {
     fontFamily: "Open Sans",
     fontSize: 10,
     color: "#365902",
+    width: 120,
   },
   price: {
     fontFamily: "Playfair Display",
@@ -40,10 +47,12 @@ const useStyles = makeStyles({
   card: {
     elevation: 0,
     margin: 1,
+    height: 65,
   },
   cardContent: {
     display: "flex",
     flexDirection: "row",
+    flex: "1 0 auto",
   },
   link: {
     textDecoration: "none",
@@ -73,9 +82,7 @@ export default function PlantCardNavbar() {
   }, []);
 
   const handleClickDelete = () => {
-    //
-    //
-    //
+    console.log("remove plant");
   };
 
   return (
@@ -92,19 +99,20 @@ export default function PlantCardNavbar() {
             >
               <Card className={classes.card} elevation={0}>
                 <div className={classes.cardContent}>
-                  {/* <IconButton */}
-
                   <CardMedia
                     className={classes.image}
                     image={plant.image}
                     title={plant.name}
                   />
                   <CardContent className={classes.content}>
-                    <IconButton className={classes.cancelIcon}>
+                    <IconButton
+                      className={classes.cancelIcon}
+                      onClick={handleClickDelete}
+                    >
                       <CancelIcon className={classes.cancelIcon} />
                     </IconButton>
                     <div>
-                      <Typography className={classes.plantName}>
+                      <Typography className={classes.plantName} noWrap>
                         {plant.name}
                       </Typography>
                       <Typography className={classes.price}>

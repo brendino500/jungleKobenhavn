@@ -238,8 +238,6 @@ function Navbar(props: ComponentPropsWithoutRef<any>) {
     </div>
   );
 
-  console.log("navbar", basketState, plantsInBasket);
-
   return (
     <div className={classes.root}>
       <AppBar
