@@ -20,6 +20,7 @@ import {
   Button,
   InputBase,
   Grid,
+  Hidden,
   IconButton,
   Badge,
   FormControl,
@@ -121,6 +122,15 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: "bold",
       letterSpacing: 2,
       textTransform: "uppercase",
+    },
+    titleMobile: {
+      fontFamily: "Playfair Display",
+      fontSize: 17,
+      color: "#1A3400",
+      fontWeight: "bold",
+      letterSpacing: 2,
+      textTransform: "uppercase",
+      marginRight: 10
     },
     menuIcon: {
       color: "#1A3400",
@@ -252,9 +262,16 @@ function Navbar(props: ComponentPropsWithoutRef<any>) {
             <MenuIcon className={classes.menuIcon} />
           </Button>
           <Link to={`/`} className={classes.link}>
+            <Hidden smDown>
             <Typography className={classes.title} noWrap>
               Jungle København
             </Typography>
+            </Hidden>
+            <Hidden smUp>
+            <Typography className={classes.titleMobile} noWrap>
+              JK
+            </Typography>
+            </Hidden>
           </Link>
 
           <div className={classes.search}>

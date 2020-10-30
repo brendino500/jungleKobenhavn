@@ -11,13 +11,16 @@ import {
   Snackbar,
 } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: 10,
     backgroundColor: "#25462e",
   },
   image: {
     height: 400,
+    [theme.breakpoints.between("xs", "sm")]: {
+      height: 300,
+    },
   },
   plantName: {
     fontFamily: "Playfair Display",
@@ -27,6 +30,9 @@ const useStyles = makeStyles({
     textTransform: "uppercase",
     width: 300,
     color: "#25462e",
+  },
+  [theme.breakpoints.between("xs", "sm")]: {
+    fontSize: 14
   },
   text: {
     fontFamily: "Open Sans",
@@ -55,6 +61,10 @@ const useStyles = makeStyles({
   plantInfo: {
     marginLeft: 50,
     color: "#25462e",
+    [theme.breakpoints.between("xs", "sm")]: {
+      marginLeft: 0,
+      marginTop: 5
+    },
   },
   snackbar: {
     color: "#EBE8E5",
@@ -62,7 +72,7 @@ const useStyles = makeStyles({
     backgroundColor: "#497702",
     textAlign: "center",
   },
-});
+}));
 
 export default function PlantIndividual(props: any) {
   const [data, setData] = React.useState();

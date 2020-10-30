@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10%",
     color: "#1A3400",
     [theme.breakpoints.between("xs", "sm")]: {
-      fontSize: 10,
+      fontSize: 30,
+      marginTop: "5%"
     },
   },
   button: {
