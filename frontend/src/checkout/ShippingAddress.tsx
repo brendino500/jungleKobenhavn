@@ -7,10 +7,10 @@ import { Container, Hidden, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: 2,
+    margin: "0 auto",
     [theme.breakpoints.between("xs", "sm")]: {
-      width: 350
-    }
+      width: 350,
+    },
   },
   shippingAddress: {
     margin: 2,
@@ -36,7 +36,7 @@ export default function ShippingAddress() {
       <Grid
         container
         direction="row"
-        justify="space-around"
+        justify="center"
         alignItems="flex-start"
         className={classes.grid}
       >
@@ -44,9 +44,9 @@ export default function ShippingAddress() {
           <ShippingForm />
         </div>
         <Hidden smDown>
-        <div className={classes.orderSummary}>
-          <ShippingSummary />
-        </div>
+          <div className={classes.orderSummary}>
+            <ShippingSummary />
+          </div>
         </Hidden>
       </Grid>
       <Hidden smUp>

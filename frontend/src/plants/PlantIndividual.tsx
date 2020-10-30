@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.between("xs", "sm")]: {
       marginLeft: "7%",
-      marginTop: "-7%"
+      marginTop: "-7%",
     },
   },
   image: {
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     width: 300,
     color: "#25462e",
     [theme.breakpoints.between("xs", "sm")]: {
-      fontSize: 16
+      fontSize: 16,
     },
   },
 
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#25462e",
     [theme.breakpoints.between("xs", "sm")]: {
       fontSize: 13,
-      width: 275
+      width: 275,
     },
   },
   price: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#25462e",
     fontSize: 20,
     [theme.breakpoints.between("xs", "sm")]: {
-      fontSize: 14
+      fontSize: 14,
     },
   },
   button: {
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     letterSpacing: 2,
     [theme.breakpoints.between("xs", "sm")]: {
-      width: 275
+      width: 275,
     },
   },
   numbers: {
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     color: "#25462e",
     [theme.breakpoints.between("xs", "sm")]: {
-      fontSize: 12
+      fontSize: 12,
     },
   },
   plantInfo: {
@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#25462e",
     [theme.breakpoints.between("xs", "sm")]: {
       marginLeft: 0,
-      marginTop: 5
+      marginTop: 5,
     },
   },
   snackbar: {

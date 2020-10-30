@@ -16,7 +16,7 @@ import LinkIcon from "@material-ui/icons/Link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: 2,
+    margin: "0 auto",
   },
   textSection: {
     marginTop: "3%",
@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Open Sans",
     color: "#848380",
     fontSize: 14,
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 18,
+    },
   },
   list: {
     display: "flex",
@@ -51,7 +54,10 @@ const useStyles = makeStyles((theme) => ({
     color: "#848380",
     fontSize: 14,
     [theme.breakpoints.between("xs", "sm")]: {
-      marginTop: 50
+      marginTop: 50,
+    },
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 16,
     },
   },
   header: {
@@ -64,6 +70,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#365902",
     fontSize: 14,
     marginLeft: "15%",
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 17,
+    },
   },
   contactSection: {
     display: "flex",
@@ -74,11 +83,14 @@ const useStyles = makeStyles((theme) => ({
   icons: {
     color: "#365902",
     fontSize: 27,
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 32,
+    },
   },
   contactList: {
     marginTop: "3%",
     [theme.breakpoints.between("xs", "sm")]: {
-      marginLeft: -50
+      marginLeft: -50,
     },
   },
   elipsis: {
@@ -86,8 +98,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     fontSize: 20,
     marginLeft: "25%",
-    marginTop: 30
-  }
+    marginTop: 30,
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 24,
+    },
+  },
 }));
 
 export default function JokePayment() {
@@ -169,7 +184,6 @@ export default function JokePayment() {
         <Hidden smUp>
           <Typography className={classes.elipsis}>____________</Typography>
         </Hidden>
-
 
         <Container className={classes.contactSection}>
           <Grid

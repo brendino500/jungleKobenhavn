@@ -22,7 +22,7 @@ import {
 } from "@material-ui/core";
 import LockIcon from "@material-ui/icons/Lock";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: 5,
     width: "auto",
@@ -34,18 +34,27 @@ const useStyles = makeStyles({
     color: "#848380",
     marginTop: 12,
     letterSpacing: 3,
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 28,
+    },
   },
   text: {
     marginTop: "5%",
     fontFamily: "Open Sans",
     fontSize: 14,
     color: "#848380",
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 17,
+    },
   },
   smallText: {
     marginTop: "5%",
     fontFamily: "Open Sans",
     fontSize: 10,
     color: "#848380",
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 14,
+    },
   },
   deliverySelect: {
     marginTop: 10,
@@ -54,11 +63,17 @@ const useStyles = makeStyles({
     fontFamily: "Open Sans",
     fontSize: 14,
     color: "#848380",
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 15,
+    },
   },
   selectButton: {
     color: "#848380",
     fontFamily: "Open Sans",
     fontSize: 14,
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 16,
+    },
   },
   menuItems: {
     fontFamily: "Open Sans",
@@ -73,6 +88,9 @@ const useStyles = makeStyles({
     fontSize: 12,
     color: "#EBE8E5",
     letterSpacing: 2,
+    [theme.breakpoints.between("lg", "xl")]: {
+      fontSize: 15,
+    },
   },
   lockIcon: {
     color: "#EBE8E5",
@@ -82,7 +100,7 @@ const useStyles = makeStyles({
   link: {
     textDecoration: "none",
   },
-});
+}));
 
 export default function SummaryCheckout() {
   const classes = useStyles();

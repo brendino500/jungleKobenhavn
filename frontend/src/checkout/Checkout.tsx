@@ -5,9 +5,9 @@ import SummaryCheckout from "./SummaryCheckout";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    margin: 2,
+    margin: "0 auto",
   },
   basket: {
     flexGrow: 3,
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     fontSize: 16,
     color: "#848380",
   },
-});
+}));
 
 export default function Checkout() {
   const classes = useStyles();
