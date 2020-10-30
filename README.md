@@ -1,16 +1,20 @@
 # :herb: Jungle København
 
-![homepage](https://i.ibb.co/mbdTqDJ/Screenshot-2020-10-26-at-17-35-00.png)
+<a href="https://jungle-kobenhavn.herokuapp.com/" target="_blank" rel="noopener noreferrer" >
+<img src="https://i.ibb.co/mbdTqDJ/Screenshot-2020-10-26-at-17-35-00.png" alt="homepage" />
+</a>
 
 ## :zap: Overview
 
-- View my projet [here](#)
+- View my projet [here](https://jungle-kobenhavn.herokuapp.com/)
 
 - After an intense coding bootcamp, I decided to challenge myself onto another project. I wanted to create an **ecommerce site in TypeScript** as I have been wanting to learn the language. I also really wanted to **push myself with Material UI** and explore other features it has to offer.
 
 - In this project I also wanted to **strictly use React Hooks** and **learn and implement** the `useContext()` functionality, something of which was completely new to me.
 
 - This is the closest I will ever get to owning a plant shop so it's a really fun project to build! :nerd_face:
+
+![walkthrough](readmeAssets/jk-walkthrough.gif)
 
 ---
 
@@ -55,6 +59,9 @@
 - I also pushed myself with **building up parent components with smaller children components.** This was the first project I had coded where **I really tried to exploit this React feature**. It's really satisfying nesting components into components and seeing smaller files, however this is where I realised that naming files are so important!
 
 <img src="https://i.ibb.co/xXVLVtT/example-of-nesting3.png" alt="example-of-nesting" width="500" >
+
+- To make this website feel like a real shop, I added **two locations which renders on MapBox.**
+<img src="https://i.ibb.co/zJ8XpyG/Screenshot-2020-10-29-at-20-00-19.png" alt="Screenshot-2020-10-29-at-20-00-19" border="0"
 
 ---
 
@@ -112,6 +119,11 @@ return (
 - **Once I learn and get more comfortable with TypeScript I will probably change some of the inevitable mistakes that I have made.** (lol)
 
 ---
+
+## :seedling: Screenshots
+![example-layout1](https://i.ibb.co/jhM7PQ9/example-layout1.png)
+![example-layout1](https://i.ibb.co/nmcTPxd/example-layout2.png)
+
 
 ## :bulb: Sources
 
