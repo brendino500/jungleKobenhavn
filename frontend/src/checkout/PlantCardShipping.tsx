@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Playfair Display",
       color: "#1A3400",
       fontSize: 12,
+      [theme.breakpoints.between("xs", "sm")]: {
+        width: 150
+      },
     },
     link: {
       textDecoration: "none",
@@ -96,7 +99,7 @@ export default function PlantCardCheckout() {
                       justify="space-between"
                       alignItems="center"
                     >
-                      <Typography className={classes.plantName}>
+                      <Typography className={classes.plantName} noWrap>
                         {plant.name}
                       </Typography>
 

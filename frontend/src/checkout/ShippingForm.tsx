@@ -13,9 +13,10 @@ import {
   Select,
   MenuItem,
   FormControl,
+  Hidden,
 } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: 2,
@@ -44,6 +45,9 @@ const useStyles = makeStyles({
     letterSpacing: 1,
     color: "#848380",
     fontSize: 13,
+    [theme.breakpoints.between("xs", "sm")]: {
+      width: 350
+    },
   },
   inputText: {
     fontFamily: "Playfair Display",
@@ -72,6 +76,9 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     marginTop: "5%",
+    [theme.breakpoints.between("xs", "sm")]: {
+      marginLeft: 110
+    },
   },
   doubleField: {
     display: "flex",
@@ -82,8 +89,11 @@ const useStyles = makeStyles({
     margin: 5,
     display: "flex",
     flexDirection: "column",
+    [theme.breakpoints.between("xs", "sm")]: {
+      marginLeft: 110
+    },
   },
-});
+}));
 
 export default function ShippingForm() {
   const classes = useStyles();
@@ -146,6 +156,7 @@ export default function ShippingForm() {
           <Container className={classes.shippingAddress}>
             <Typography className={classes.text}>Shipping Address</Typography>
             <form className={classes.form} autoComplete="off">
+              <Hidden smDown>
               <div className={classes.doubleField}>
                 <TextField
                   className={classes.input}
@@ -188,6 +199,49 @@ export default function ShippingForm() {
                   }}
                 />
               </div>
+              </Hidden>
+              <Hidden smUp>
+              <TextField
+                  className={classes.input}
+                  fullWidth
+                  required
+                  id="outlined-basic"
+                  label="First Name"
+                  variant="outlined"
+                  color="primary"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
+                />
+                <TextField
+                  className={classes.input}
+                  fullWidth
+                  required
+                  id="outlined-basic"
+                  label="Last Name"
+                  variant="outlined"
+                  color="primary"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
+                />
+              </Hidden>
               <div className={classes.middleForm}>
                 <TextField
                   className={classes.input}
@@ -249,6 +303,7 @@ export default function ShippingForm() {
                   }}
                 />
               </div>
+              <Hidden smDown>
               <div className={classes.doubleField}>
                 <FormControl variant="outlined" fullWidth>
                   <InputLabel
@@ -300,6 +355,58 @@ export default function ShippingForm() {
                   }}
                 />
               </div>
+              </Hidden>
+              <Hidden smUp>
+              <FormControl variant="outlined" fullWidth>
+                  <InputLabel
+                    id="demo-simple-select-outlined-label"
+                    className={classes.input}
+                    required
+                  >
+                    Country
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-outlined-label"
+                    id="demo-simple-select-outlined"
+                    value={country}
+                    onChange={handleChangeSelect}
+                    label="Country"
+                    className={classes.input}
+                  >
+                    <MenuItem value="" className={classes.inputText}>
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem
+                      className={classes.inputText}
+                      value={"United Kingdom"}
+                    >
+                      United Kingdom
+                    </MenuItem>
+                    <MenuItem className={classes.inputText} value={"Denmark"}>
+                      Denmark
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+                <TextField
+                  className={classes.input}
+                  fullWidth
+                  required
+                  id="outlined-basic"
+                  label="Postcode"
+                  variant="outlined"
+                  InputProps={{
+                    classes: {
+                      input: classes.inputText,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.inputText,
+                      focused: classes.inputText,
+                    },
+                  }}
+                />
+              </Hidden>
             </form>
           </Container>
         </Grid>

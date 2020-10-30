@@ -17,13 +17,19 @@ import {
 import LockIcon from "@material-ui/icons/Lock";
 import { ShippingContext } from "../providers/ShippingContext";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: 2,
     padding: 0,
+    [theme.breakpoints.between("xs", "sm")]: {
+      marginTop: 10
+    },
   },
   content: {
     width: 400,
+    [theme.breakpoints.between("xs", "sm")]: {
+      width: 330
+    },
   },
   title: {
     fontFamily: "Playfair Display",
@@ -50,6 +56,9 @@ const useStyles = makeStyles({
     marginTop: "5%",
     width: "400",
     flexGrow: 1,
+    [theme.breakpoints.between("xs", "sm")]: {
+      width: 330
+    },
   },
   buttonText: {
     fontFamily: "Playfair Display",
@@ -71,7 +80,7 @@ const useStyles = makeStyles({
     textDecoration: "none",
     width: 400,
   },
-});
+}));
 
 export default function ShippingSummary() {
   const classes = useStyles();

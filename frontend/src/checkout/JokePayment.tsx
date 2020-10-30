@@ -7,13 +7,15 @@ import {
   List,
   ListItem,
   Button,
+  Divider,
+  Hidden,
   Grid,
 } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import LinkIcon from "@material-ui/icons/Link";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: 2,
   },
@@ -49,6 +51,9 @@ const useStyles = makeStyles({
     fontFamily: "Open Sans",
     color: "#848380",
     fontSize: 14,
+    [theme.breakpoints.between("xs", "sm")]: {
+      marginTop: 50
+    },
   },
   header: {
     display: "flex",
@@ -73,8 +78,18 @@ const useStyles = makeStyles({
   },
   contactList: {
     marginTop: "3%",
+    [theme.breakpoints.between("xs", "sm")]: {
+      marginLeft: -50
+    },
   },
-});
+  elipsis: {
+    color: "#497702",
+    fontWeight: "bold",
+    fontSize: 20,
+    marginLeft: "25%",
+    marginTop: 30
+  }
+}));
 
 export default function JokePayment() {
   const classes = useStyles();
@@ -103,7 +118,7 @@ export default function JokePayment() {
               container
               direction="column"
               justify="flex-start"
-              alignItems="flex-start"
+              alignItems="center"
             >
               <List>
                 <ListItem>
@@ -152,6 +167,11 @@ export default function JokePayment() {
             </Grid>
           </Container>
         </div>
+        <Hidden smUp>
+          <Typography className={classes.elipsis}>____________</Typography>
+        </Hidden>
+
+
         <Container className={classes.contactSection}>
           <Grid
             container

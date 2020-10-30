@@ -4,7 +4,7 @@ import PlantCardCheckout from "./PlantCardCheckout";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid, Divider } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: 5,
   },
@@ -16,7 +16,11 @@ const useStyles = makeStyles({
     marginTop: 12,
     letterSpacing: 3,
   },
-});
+  [theme.breakpoints.between("xs", "sm")]: {
+    fontSize: 14,
+    marginTop: 5
+  },
+}));
 
 export default function BasketCheckout() {
   const classes = useStyles();
