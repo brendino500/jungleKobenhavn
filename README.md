@@ -43,10 +43,6 @@
 <img src="https://i.ibb.co/HV3VjpQ/colour-theme.png" alt="color-palette" width="375" >
 </p>
 
-
-![ux-example](https://i.ibb.co/Kwdm3bc/styling-example.jpg) ![ux-example](https://i.ibb.co/HV3VjpQ/colour-theme.png) 
-
-
 <br />
 
 - As I really wanted to be **strict with how I planned this project, I made wireframes to the best of my UX knowledge** (not a lot). I knew this was going to change as the project progressed, but I thought it would be better to have a basic idea rather than make it up on the spot.
@@ -127,9 +123,14 @@ return (
 ---
 
 ## :seedling: Screenshots
-![example-layout1](https://i.ibb.co/jhM7PQ9/example-layout1.png)
-![example-layout1](https://i.ibb.co/nmcTPxd/example-layout2.png)
+  <img src="https://i.ibb.co/jhM7PQ9/example-layout1.png" alt="example-layout" />
+  <img src="https://i.ibb.co/nmcTPxd/example-layout2.png" alt="example-layout" />
 
+<p float="left">
+  <img src="https://i.ibb.co/C9J7hbh/scrollable-drawer.png" alt="scrollable-drawer" />
+  <img src="https://i.ibb.co/CM9dDVT/plant-card.png" alt="plant-card" />
+    <img src="https://i.ibb.co/1LdgjVV/plant-grid.png" alt="plant-index" />
+</p>
 
 ## :bulb: Sources
 
