@@ -38,8 +38,14 @@
 
 - I **got in contact with Matt Goodwill, a UX Designer** to help me create the foundations of styling the site. **My brief was 'make it as minimalist and Danish as possible'.** Luckily, they go hand in hand. In return, Matt gave me **templates of hex colours and fonts**. I really **enjoyed the process of working with a designer** as this **enabled me to focus on the code** rather than the design, which at times I can be very distracted by.
 
-<img src="https://i.ibb.co/Kwdm3bc/styling-example.jpg" alt="styling example" width="400" >
-<img src="https://i.ibb.co/HV3VjpQ/colour-theme.png" alt="color-palette" width="400" >
+<p float="left">
+<img src="https://i.ibb.co/Kwdm3bc/styling-example.jpg" alt="styling example" width="375" >
+<img src="https://i.ibb.co/HV3VjpQ/colour-theme.png" alt="color-palette" width="375" >
+</p>
+
+
+![ux-example](https://i.ibb.co/Kwdm3bc/styling-example.jpg) ![ux-example](https://i.ibb.co/HV3VjpQ/colour-theme.png) 
+
 
 <br />
 
@@ -61,7 +67,7 @@
 <img src="https://i.ibb.co/xXVLVtT/example-of-nesting3.png" alt="example-of-nesting" width="500" >
 
 - To make this website feel like a real shop, I added **two locations which renders on MapBox.**
-<img src="https://i.ibb.co/zJ8XpyG/Screenshot-2020-10-29-at-20-00-19.png" alt="Screenshot-2020-10-29-at-20-00-19" border="0"
+<img src="https://i.ibb.co/zJ8XpyG/Screenshot-2020-10-29-at-20-00-19.png" alt="Screenshot-2020-10-29-at-20-00-19" />
 
 ---
 
