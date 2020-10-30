@@ -63,8 +63,11 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: "#365902",
     },
     drawerPaperRight: {
-      width: drawerWidth,
+      width: drawerWidth + 100,
       backgroundColor: "#C1BFBB",
+      [theme.breakpoints.between("xs", "sm")]: {
+        width: 250
+      },
     },
     drawerText: {
       color: "#C1BFBB",
@@ -117,7 +120,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       fontFamily: "Playfair Display",
-      fontSize: 17,
+      fontSize: 24,
       color: "#1A3400",
       fontWeight: "bold",
       letterSpacing: 2,
@@ -141,6 +144,7 @@ const useStyles = makeStyles((theme: Theme) =>
     cartIcon: {
       color: "#1A3400",
       position: "absolute",
+      fontSize: 30
     },
     basketList: {
       width: 200,
@@ -151,8 +155,11 @@ const useStyles = makeStyles((theme: Theme) =>
     drawerTextRight: {
       color: "#365902",
       fontFamily: "Open Sans",
-      fontSize: 20,
+      fontSize: 24,
       letterSpacing: 2,
+      [theme.breakpoints.between("xs", "sm")]: {
+        fontSize: 20
+      },
     },
     drawerLeftLayout: {
       flexGrow: 1,
@@ -160,7 +167,7 @@ const useStyles = makeStyles((theme: Theme) =>
     drawerTotal: {
       color: "#365902",
       fontFamily: "Open Sans",
-      fontSize: 15,
+      fontSize: 20,
       letterSpacing: 2,
       marginLeft: 10,
     },
@@ -169,11 +176,15 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: 5,
       fontFamily: "Open Sans",
       letterSpacing: 3,
+      fontSize: 20
     },
     basketButtonLayout: {
       position: "fixed",
       bottom: 0,
-      width: drawerWidth - 20,
+      width: drawerWidth + 80,
+      [theme.breakpoints.between("xs", "sm")]: {
+        width: 240
+      },
     },
     basketTotalPrice: {
       display: "flex",

@@ -13,38 +13,49 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: 10,
-    backgroundColor: "#25462e",
+    [theme.breakpoints.between("xs", "sm")]: {
+      marginLeft: "7%",
+      marginTop: "-7%"
+    },
   },
   image: {
     height: 400,
     [theme.breakpoints.between("xs", "sm")]: {
-      height: 300,
+      height: 275,
     },
   },
   plantName: {
     fontFamily: "Playfair Display",
-    fontSize: 20,
+    fontSize: 26,
     letterSpacing: 2,
     fontWeight: "bold",
     textTransform: "uppercase",
     width: 300,
     color: "#25462e",
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: 16
+    },
   },
-  [theme.breakpoints.between("xs", "sm")]: {
-    fontSize: 14
-  },
+
   text: {
     fontFamily: "Open Sans",
-    fontSize: 14,
+    fontSize: 16,
     width: 300,
     color: "#25462e",
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: 13,
+      width: 275
+    },
   },
   price: {
     fontFamily: "Playfair Display",
     fontWeight: "bold",
     letterSpacing: 2,
     color: "#25462e",
+    fontSize: 20,
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: 14
+    },
   },
   button: {
     color: "#EBE8E5",
@@ -52,11 +63,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#365902",
     fontWeight: "bold",
     letterSpacing: 2,
+    [theme.breakpoints.between("xs", "sm")]: {
+      width: 275
+    },
   },
   numbers: {
     fontFamily: "Open Sans",
-    fontSize: 12,
+    fontSize: 14,
     color: "#25462e",
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: 12
+    },
   },
   plantInfo: {
     marginLeft: 50,
@@ -104,7 +121,7 @@ export default function PlantIndividual(props: any) {
 
   if (!data) return null;
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" className={classes.root}>
       <Grid
         container
         direction="row"

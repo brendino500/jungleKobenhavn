@@ -7,7 +7,6 @@ import {
   List,
   ListItem,
   Button,
-  Divider,
   Hidden,
   Grid,
 } from "@material-ui/core";

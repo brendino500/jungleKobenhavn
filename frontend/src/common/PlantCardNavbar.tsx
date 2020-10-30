@@ -16,28 +16,42 @@ import {
 } from "@material-ui/core";
 import CancelIcon from "@material-ui/icons/Cancel";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "auto",
-    maxHeight: 450,
+    maxHeight: "80%",
+    [theme.breakpoints.between("xs", "sm")]: {
+      maxHeight: "75%"
+    },
   },
   image: {
-    height: 65,
-    width: 65,
+    height: 80,
+    width: 80,
+    [theme.breakpoints.between("xs", "sm")]: {
+      height: 65,
+      width: 65,
+    },
   },
   plantName: {
     fontFamily: "Open Sans",
-    fontSize: 10,
+    fontSize: 15,
     color: "#365902",
-    width: 120,
+    width: 175,
+    [theme.breakpoints.between("xs", "sm")]: {
+      width: 150,
+      fontSize: 14
+    },
   },
   price: {
     fontFamily: "Playfair Display",
-    fontSize: 10,
+    fontSize: 15,
     color: "#365902",
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: 13
+    },
   },
   content: {
     backgroundColor: "#C1BFBB",
@@ -48,7 +62,10 @@ const useStyles = makeStyles({
   card: {
     elevation: 0,
     margin: 1,
-    height: 65,
+    height: 80,
+    [theme.breakpoints.between("xs", "sm")]: {
+      height: 65
+    },
   },
   cardContent: {
     display: "flex",
@@ -71,7 +88,7 @@ const useStyles = makeStyles({
     backgroundColor: "#1A3400",
     textAlign: "center",
   },
-});
+}));
 
 export default function PlantCardNavbar() {
   const [open, setOpen] = React.useState(false);

@@ -62,8 +62,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#EBE8E5",
     height: 80,
     [theme.breakpoints.between("xs", "sm")]: {
-      height: 50,
-
+      height: 35,
     },
   },
   link: {
