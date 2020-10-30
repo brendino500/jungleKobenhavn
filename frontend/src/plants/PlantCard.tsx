@@ -16,7 +16,7 @@ import {
 } from "@material-ui/core";
 import { PlantType } from "./PlantType";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: 20,
   },
@@ -30,6 +30,9 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     marginBottom: "-10%",
     letterSpacing: 1,
+    [theme.breakpoints.between("xs", "sm")]: {
+      width: 900,
+    },
   },
   text: {
     color: "#1A3400",
@@ -55,7 +58,7 @@ const useStyles = makeStyles({
     backgroundColor: "#497702",
     textAlign: "center",
   },
-});
+}));
 
 export default function PlantCard(props: PlantType) {
   const [basketState, setBasketState] = React.useContext(BasketContext);

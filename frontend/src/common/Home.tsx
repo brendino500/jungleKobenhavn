@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Button, Grid } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   "@global": {
     body: {
       backgroundImage: `url(${image})`,
@@ -14,6 +14,7 @@ const useStyles = makeStyles({
       backgroundSize: "cover",
       backgroundAttachment: "fixed",
       height: "100%",
+      [theme.breakpoints.between("xs", "sm")]: {},
     },
   },
   title: {
@@ -23,6 +24,9 @@ const useStyles = makeStyles({
     fontSize: 50,
     marginTop: "10%",
     color: "#1A3400",
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: 10,
+    },
   },
   button: {
     fontFamily: "Open Sans",
@@ -32,7 +36,7 @@ const useStyles = makeStyles({
   link: {
     textDecoration: "none",
   },
-});
+}));
 
 export default function Home() {
   const classes = useStyles();

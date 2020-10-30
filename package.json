@@ -9,6 +9,7 @@
     "dev": "nodemon",
     "start": "node index.js",
     "build": "cd frontend && npm install && npm run build"
+
   },
   "author": "",
   "license": "ISC",

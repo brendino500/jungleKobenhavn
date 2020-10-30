@@ -6,23 +6,23 @@ import PlantCard from "./PlantCard";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
 
-export default function PlantIndex(props: ComponentPropsWithoutRef<any>) {
-  const useStyles = makeStyles({
-    root: {
-      padding: 10,
-    },
-    title: {
-      fontFamily: "Playfair Display",
-      fontWeight: "bold",
-      fontSize: 35,
-      letterSpacing: 7,
-      textTransform: "uppercase",
-      textAlign: "center",
-      color: "#1A3400",
-      marginBottom: "6%",
-    },
-  });
+const useStyles = makeStyles({
+  root: {
+    padding: 10,
+  },
+  title: {
+    fontFamily: "Playfair Display",
+    fontWeight: "bold",
+    fontSize: 35,
+    letterSpacing: 7,
+    textTransform: "uppercase",
+    textAlign: "center",
+    color: "#1A3400",
+    marginBottom: "6%",
+  },
+});
 
+export default function PlantIndex(props: ComponentPropsWithoutRef<any>) {
   const [data, setData] = React.useState([]);
   const classes = useStyles();
 
