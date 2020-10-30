@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "column",
     },
     card: {
-      width: "sm",
+      width: "300",
       margin: 5,
     },
     details: {

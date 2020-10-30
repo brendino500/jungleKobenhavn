@@ -130,7 +130,6 @@ export default function PlantCardNavbar() {
                       <CardContent className={classes.content}>
                         <IconButton
                           className={classes.cancelIcon}
-                          // onClick={handleClickDelete}
                           onClick={() => {
                             handleClickDelete(plant._id);
                           }}
