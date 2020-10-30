@@ -76,6 +76,7 @@ const useStyles = makeStyles({
   doubleField: {
     display: "flex",
     flexDirection: "row",
+    marginRight: -8,
   },
   emailInfo: {
     margin: 5,
