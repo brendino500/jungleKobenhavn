@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#EBE8E5",
     height: 80,
     [theme.breakpoints.between("xs", "sm")]: {
-      height: 40,
+      height: 50,
 
     },
   },

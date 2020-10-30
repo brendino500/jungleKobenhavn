@@ -6,11 +6,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 export default function KobenhavnMap() {
-  const useStyles = makeStyles({
+  const useStyles = makeStyles((theme) => ({
     root: {
       margin: 5,
     },
-  });
+  }));
 
   const classes = useStyles();
   return (

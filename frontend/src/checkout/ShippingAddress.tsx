@@ -8,6 +8,9 @@ import { Container, Hidden, Grid } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: 2,
+    [theme.breakpoints.between("xs", "sm")]: {
+      width: 350
+    }
   },
   shippingAddress: {
     margin: 2,

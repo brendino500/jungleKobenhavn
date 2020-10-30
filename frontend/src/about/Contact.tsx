@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid, Box } from "@material-ui/core";
 
 export default function Contact() {
-  const useStyles = makeStyles({
+  const useStyles = makeStyles((theme) => ({
     root: {
       margin: 5,
     },
@@ -23,8 +23,11 @@ export default function Contact() {
     },
     box: {
       marginTop: "-5%",
+      [theme.breakpoints.between("xs", "sm")]: {
+        marginTop: "-20%"
+      },
     },
-  });
+  }));
 
   const classes = useStyles();
 
