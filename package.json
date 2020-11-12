@@ -9,8 +9,8 @@
     "dev": "nodemon",
     "start": "node index.js",
     "build": "cd frontend && npm install && npm run build"
-
   },
+  "proxy": "http://localhost:8000",
   "author": "",
   "license": "ISC",
   "dependencies": {
