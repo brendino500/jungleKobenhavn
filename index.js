@@ -16,11 +16,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true , useC
   }
 )
 
-// const connection = "mongodb+srv://username:<password>@<cluster>/<database>?retryWrites=true&w=majority";
-// mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
-//     .then(() => console.log("Database Connected Successfully"))
-//     .catch(err => console.log(err));
-
 app.use(express.static(`${__dirname}/frontend/build`))
 
 app.use(express.json())
@@ -35,4 +30,6 @@ app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Up and running on port ${PORT}`))
 
-app.get('/', (req, res) => { res.send('Hello from Express!')
+app.get('/', (req, res) => {
+  res.send('Hello from Express!')
+})
