@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../assets/zzplant.jpg";
+// import useStyles from "./styles/homeStyles";
 
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: "cover",
       backgroundAttachment: "fixed",
       height: "100%",
-      [theme.breakpoints.between("xs", "sm")]: {},
     },
   },
   title: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#1A3400",
     [theme.breakpoints.between("xs", "sm")]: {
       fontSize: 30,
-      marginTop: "5%"
+      marginTop: "5%",
     },
   },
   button: {
@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
 }));
-
 export default function Home() {
   const classes = useStyles();
 
