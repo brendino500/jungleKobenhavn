@@ -1,17 +1,11 @@
 import * as React from "react";
 import MapGl, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-export default function LondonMap() {
-  const useStyles = makeStyles({
-    root: {
-      margin: 5,
-    },
-  });
+import useStyles from "./styles/londonMapStyles";
 
+export default function LondonMap() {
   const classes = useStyles();
   return (
     <Container className={classes.root}>
