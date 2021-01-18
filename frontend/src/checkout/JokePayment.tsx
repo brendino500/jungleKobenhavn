@@ -3,16 +3,9 @@ import useStyles from "./styles/jokePaymentStyles";
 import ContactLinks from "./components/jokePayment/ContactLinks";
 import AboutText from "./components/jokePayment/AboutText";
 import NotARealSiteText from "./components/jokePayment/NotARealSiteText";
+import PlantLinks from "./components/jokePayment/PlantLinks";
 
-import {
-  Container,
-  Typography,
-  List,
-  ListItem,
-  Button,
-  Hidden,
-  Grid,
-} from "@material-ui/core";
+import { Container, Typography, Hidden, Grid } from "@material-ui/core";
 
 export default function JokePayment() {
   const classes = useStyles();
@@ -38,50 +31,7 @@ export default function JokePayment() {
               justify="flex-start"
               alignItems="center"
             >
-              <List>
-                <ListItem>
-                  <a
-                    href="https://www.cowellsgc.co.uk/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={classes.link}
-                  >
-                    <Button className={classes.button}>
-                      Cowell's Garden Centre
-                    </Button>
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a
-                    href="https://www.houseofkojo.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={classes.link}
-                  >
-                    <Button className={classes.button}>House of Kojo</Button>
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a
-                    href="https://www.root-houseplants.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={classes.link}
-                  >
-                    <Button className={classes.button}>Root Houseplants</Button>
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a
-                    href="https://www.leafyhouse.co.uk/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={classes.link}
-                  >
-                    <Button className={classes.button}>Leafy House</Button>
-                  </a>
-                </ListItem>
-              </List>
+              <PlantLinks />
             </Grid>
           </Container>
         </div>
