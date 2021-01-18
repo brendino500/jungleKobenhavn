@@ -2,6 +2,7 @@ import React from "react";
 import ColorTheme from "../ColorTheme";
 import useStyles from "./styles/shippingFormStyles";
 import EmailInput from "./components/shippingForm/EmailInput";
+import MobileFirstLastName from "./components/shippingForm/MobileFirstLastName";
 
 import {
   Container,
@@ -84,48 +85,7 @@ export default function ShippingForm() {
                   />
                 </div>
               </Hidden>
-              <Hidden smUp>
-                <TextField
-                  className={classes.input}
-                  fullWidth
-                  required
-                  id="outlined-basic"
-                  label="First Name"
-                  variant="outlined"
-                  color="primary"
-                  InputProps={{
-                    classes: {
-                      input: classes.inputText,
-                    },
-                  }}
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.inputText,
-                      focused: classes.inputText,
-                    },
-                  }}
-                />
-                <TextField
-                  className={classes.input}
-                  fullWidth
-                  required
-                  id="outlined-basic"
-                  label="Last Name"
-                  variant="outlined"
-                  color="primary"
-                  InputProps={{
-                    classes: {
-                      input: classes.inputText,
-                    },
-                  }}
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.inputText,
-                      focused: classes.inputText,
-                    },
-                  }}
-                />
-              </Hidden>
+              <MobileFirstLastName />
               <div className={classes.middleForm}>
                 <TextField
                   className={classes.input}
