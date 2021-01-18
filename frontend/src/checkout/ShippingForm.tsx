@@ -3,6 +3,8 @@ import ColorTheme from "../ColorTheme";
 import useStyles from "./styles/shippingFormStyles";
 import EmailInput from "./components/shippingForm/EmailInput";
 import MobileFirstLastName from "./components/shippingForm/MobileFirstLastName";
+import DesktopFirstLastName from "./components/shippingForm/DesktopFirstLastName";
+import MiddleForm from "./components/shippingForm/MiddleForm";
 
 import {
   Container,
@@ -41,111 +43,10 @@ export default function ShippingForm() {
           <Container className={classes.shippingAddress}>
             <Typography className={classes.text}>Shipping Address</Typography>
             <form className={classes.form} autoComplete="off">
-              <Hidden smDown>
-                <div className={classes.doubleField}>
-                  <TextField
-                    className={classes.input}
-                    fullWidth
-                    required
-                    id="outlined-basic"
-                    label="First Name"
-                    variant="outlined"
-                    color="primary"
-                    InputProps={{
-                      classes: {
-                        input: classes.inputText,
-                      },
-                    }}
-                    InputLabelProps={{
-                      classes: {
-                        root: classes.inputText,
-                        focused: classes.inputText,
-                      },
-                    }}
-                  />
-                  <TextField
-                    className={classes.input}
-                    fullWidth
-                    required
-                    id="outlined-basic"
-                    label="Last Name"
-                    variant="outlined"
-                    color="primary"
-                    InputProps={{
-                      classes: {
-                        input: classes.inputText,
-                      },
-                    }}
-                    InputLabelProps={{
-                      classes: {
-                        root: classes.inputText,
-                        focused: classes.inputText,
-                      },
-                    }}
-                  />
-                </div>
-              </Hidden>
+              <DesktopFirstLastName />
               <MobileFirstLastName />
               <div className={classes.middleForm}>
-                <TextField
-                  className={classes.input}
-                  fullWidth
-                  required
-                  id="outlined-basic"
-                  label="Address"
-                  variant="outlined"
-                  color="primary"
-                  InputProps={{
-                    classes: {
-                      input: classes.inputText,
-                    },
-                  }}
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.inputText,
-                      focused: classes.inputText,
-                    },
-                  }}
-                />
-                <TextField
-                  className={classes.input}
-                  fullWidth
-                  id="outlined-basic"
-                  label="Apartment, suite, etc (optional)"
-                  variant="outlined"
-                  color="primary"
-                  InputProps={{
-                    classes: {
-                      input: classes.inputText,
-                    },
-                  }}
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.inputText,
-                      focused: classes.inputText,
-                    },
-                  }}
-                />
-                <TextField
-                  className={classes.input}
-                  fullWidth
-                  required
-                  id="outlined-basic"
-                  label="City"
-                  variant="outlined"
-                  color="primary"
-                  InputProps={{
-                    classes: {
-                      input: classes.inputText,
-                    },
-                  }}
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.inputText,
-                      focused: classes.inputText,
-                    },
-                  }}
-                />
+                <MiddleForm />
               </div>
               <Hidden smDown>
                 <div className={classes.doubleField}>

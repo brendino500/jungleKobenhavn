@@ -1,14 +1,13 @@
 import React from "react";
 import { Hidden } from "@material-ui/core";
 
-import FirstNameTextField from "./FirstNameTextField";
-import LastNameTextField from "./LastNameTextField";
+import TextFieldComponent from "./TextFieldComponent";
 
 export default function MobileFirstLastName() {
   return (
     <Hidden smUp>
-      <FirstNameTextField />
-      <LastNameTextField />
+      <TextFieldComponent label="First Name" />
+      <TextFieldComponent label="Last Name" />
     </Hidden>
   );
 }

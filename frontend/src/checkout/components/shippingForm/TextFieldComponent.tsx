@@ -1,8 +1,11 @@
 import React from "react";
+import PropTypes, { InferProps } from "prop-types";
 import useStyles from "../../styles/shippingFormStyles";
 import { TextField } from "@material-ui/core";
 
-export default function FirstNameTextField() {
+export default function TextFieldComponent({
+  label,
+}: InferProps<typeof TextFieldComponent.propTypes>) {
   const classes = useStyles();
   return (
     <TextField
@@ -10,7 +13,7 @@ export default function FirstNameTextField() {
       fullWidth
       required
       id="outlined-basic"
-      label="First Name"
+      label={label}
       variant="outlined"
       color="primary"
       InputProps={{
@@ -27,3 +30,7 @@ export default function FirstNameTextField() {
     />
   );
 }
+
+TextFieldComponent.propTypes = {
+  label: PropTypes.string.isRequired,
+};

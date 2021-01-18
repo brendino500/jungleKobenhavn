@@ -2,16 +2,15 @@ import React from "react";
 import { Hidden } from "@material-ui/core";
 
 import useStyles from "../../styles/shippingFormStyles";
-import FirstNameTextField from "./FirstNameTextField";
-import LastNameTextField from "./LastNameTextField";
+import TextFieldComponent from "./TextFieldComponent";
 
 export default function DesktopFirstLastName() {
   const classes = useStyles();
   return (
     <Hidden smDown>
       <div className={classes.doubleField}>
-        <FirstNameTextField />
-        <LastNameTextField />
+        <TextFieldComponent label="First Name" />
+        <TextFieldComponent label="Last Name" />
       </div>
     </Hidden>
   );
