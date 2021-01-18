@@ -1,6 +1,7 @@
 import React from "react";
 import ColorTheme from "../ColorTheme";
 import useStyles from "./styles/shippingFormStyles";
+import EmailInput from "./components/shippingForm/EmailInput";
 
 import {
   Container,
@@ -8,7 +9,6 @@ import {
   Grid,
   TextField,
   ThemeProvider,
-  Checkbox,
   InputLabel,
   Select,
   MenuItem,
@@ -18,15 +18,10 @@ import {
 
 export default function ShippingForm() {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState(true);
   const [country, setCountry] = React.useState("");
 
   const handleChangeSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     setCountry(event.target.value as string);
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
   };
 
   return (
@@ -39,39 +34,7 @@ export default function ShippingForm() {
           alignItems="flex-start"
         >
           <Container className={classes.emailInfo}>
-            <Typography className={classes.text}>
-              Contact Information
-            </Typography>
-            <TextField
-              className={classes.input}
-              fullWidth
-              required
-              id="outlined-basic"
-              label="Email"
-              variant="outlined"
-              color="secondary"
-              InputProps={{
-                classes: {
-                  input: classes.inputText,
-                },
-              }}
-              InputLabelProps={{
-                classes: {
-                  root: classes.inputText,
-                  focused: classes.inputText,
-                },
-              }}
-            />
-            <div className={classes.newsCheckbox}>
-              <Checkbox
-                checked={checked}
-                onChange={handleChange}
-                inputProps={{ "aria-label": "primary checkbox" }}
-              />
-              <Typography className={classes.smallText}>
-                Keep me up to date on news and exclusive offers
-              </Typography>
-            </div>
+            <EmailInput />
           </Container>
 
           <Container className={classes.shippingAddress}>
