@@ -1,32 +1,9 @@
 import React from "react";
 import ShippingForm from "./ShippingForm";
 import ShippingSummary from "./ShippingSummary";
+import useStyles from "./styles/shippingAddressStyles";
 
-import { makeStyles } from "@material-ui/core/styles";
 import { Container, Hidden, Grid } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    margin: "0 auto",
-    [theme.breakpoints.between("xs", "sm")]: {
-      width: 350,
-    },
-  },
-  shippingAddress: {
-    margin: 2,
-    display: "flex",
-    flexGrow: 3,
-    flexDirection: "column",
-  },
-  orderSummary: {
-    flexGrow: 1,
-    display: "flex",
-  },
-  grid: {
-    display: "flex",
-    flexWrap: "nowrap",
-  },
-}));
 
 export default function ShippingAddress() {
   const classes = useStyles();
