@@ -5,8 +5,9 @@ import { getPlantsInBasket } from "../lib/api";
 import { PlantType } from "../plants/PlantType";
 import { totalCostOfBasket } from "../utils/methods";
 import useStyles from "./styles/shippingSummaryStyles";
+import PaymentButton from "./components/shippingSummary/PaymentButton";
+import TotalCost from "./components/shippingSummary/TotalCost";
 
-import { Link } from "react-router-dom";
 import {
   Container,
   Typography,
@@ -81,30 +82,8 @@ export default function ShippingSummary() {
                 </Typography>
               </Grid>
               <Divider />
-              <Grid
-                container
-                direction="row"
-                justify="space-between"
-                alignItems="flex-start"
-              >
-                <Typography className={classes.largeText}>Total</Typography>
-                <Typography className={classes.largeText}>
-                  £{totalCost}.00
-                </Typography>
-              </Grid>
-
-              <Link to={`/payment`} className={classes.link}>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  className={classes.button}
-                >
-                  <LockIcon className={classes.lockIcon} />
-                  <Typography className={classes.buttonText}>
-                    Continue to secure payment
-                  </Typography>
-                </Button>
-              </Link>
+              <TotalCost totalCost={totalCost} />
+              <PaymentButton />
             </Grid>
           </div>
         </div>
