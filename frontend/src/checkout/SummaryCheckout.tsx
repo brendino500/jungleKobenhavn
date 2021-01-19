@@ -7,21 +7,18 @@ import { totalCostOfBasket } from "../utils/methods";
 import ColorTheme from "../ColorTheme";
 import useStyles from "./styles/summaryCheckoutStyles";
 import DeliveryCostDropdown from "./components/summaryCheckout/DeliveryCostDropdown";
+import CheckoutButton from "./components/summaryCheckout/CheckoutButton";
+import TotalCost from "./components/summaryCheckout/TotalCost";
+import ShippingTotal from "./components/summaryCheckout/ShippingTotal";
+import SubtotalCost from "./components/summaryCheckout/SubtotalCost";
 
-import { Link } from "react-router-dom";
 import {
   Container,
   Typography,
   Grid,
-  Select,
   Divider,
-  FormControl,
-  MenuItem,
-  InputLabel,
-  Button,
   ThemeProvider,
 } from "@material-ui/core";
-import LockIcon from "@material-ui/icons/Lock";
 
 export default function SummaryCheckout() {
   const classes = useStyles();
@@ -39,17 +36,6 @@ export default function SummaryCheckout() {
     );
   }, [basketState]);
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    (setShipping as Function)(event.target.value as string | undefined);
-  };
-
-  const shippingTotal = () => {
-    if (!shipping) {
-      return "FREE";
-    } else {
-      return `£${shipping}.00`;
-    }
-  };
   const shippingCost = typeof shipping === "number" ? shipping : 0;
   const totalCost = totalCostOfBasket(plantsInBasket) + shippingCost;
 
@@ -64,51 +50,17 @@ export default function SummaryCheckout() {
         justify="space-between"
         alignItems="flex-start"
       >
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="flex-start"
-        >
-          <Typography className={classes.text}>Subtotal</Typography>
-          <Typography className={classes.text}>
-            £{totalCostOfBasket(plantsInBasket)}.00
-          </Typography>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="flex-start"
-        >
-          <Typography className={classes.text}>Shipping</Typography>
-          <Typography className={classes.text}>{shippingTotal()}</Typography>
-        </Grid>
+        <SubtotalCost />
+        <ShippingTotal />
         <ThemeProvider theme={ColorTheme}>
           <DeliveryCostDropdown />
         </ThemeProvider>
         <Divider />
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="flex-start"
-        >
-          <Typography className={classes.title}>Total</Typography>
-          <Typography className={classes.title}>£{totalCost}.00</Typography>
-        </Grid>
+        <TotalCost totalCost={totalCost} />
         <Typography className={classes.smallText}>
           Delivery details and secure payment on the next page
         </Typography>
-
-        <FormControl fullWidth>
-          <Link to={`/shipping`} className={classes.link}>
-            <Button className={classes.button} variant="contained" fullWidth>
-              <LockIcon className={classes.lockIcon} />
-              <Typography className={classes.buttonText}>Checkout</Typography>
-            </Button>
-          </Link>
-        </FormControl>
+        <CheckoutButton />
       </Grid>
     </Container>
   );
