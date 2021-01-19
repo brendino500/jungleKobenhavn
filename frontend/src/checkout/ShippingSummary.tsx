@@ -7,15 +7,10 @@ import { totalCostOfBasket } from "../utils/methods";
 import useStyles from "./styles/shippingSummaryStyles";
 import PaymentButton from "./components/shippingSummary/PaymentButton";
 import TotalCost from "./components/shippingSummary/TotalCost";
+import ShippingCost from "./components/shippingSummary/ShippingCost";
+import SubtotalCost from "./components/shippingSummary/SubtotalCost";
 
-import {
-  Container,
-  Typography,
-  Grid,
-  Divider,
-  Button,
-} from "@material-ui/core";
-import LockIcon from "@material-ui/icons/Lock";
+import { Container, Typography, Grid, Divider } from "@material-ui/core";
 import { ShippingContext } from "../providers/ShippingContext";
 
 export default function ShippingSummary() {
@@ -58,30 +53,9 @@ export default function ShippingSummary() {
               justify="space-between"
               alignItems="flex-start"
             >
-              <Grid
-                container
-                direction="row"
-                justify="space-between"
-                alignItems="flex-start"
-              >
-                <Typography className={classes.textSmall}>Subtotal</Typography>
-                <Typography className={classes.textSmall}>
-                  £{basketCost}.00
-                </Typography>
-              </Grid>
+              <SubtotalCost basketCost={basketCost} />
 
-              <Grid
-                container
-                direction="row"
-                justify="space-between"
-                alignItems="flex-start"
-              >
-                <Typography className={classes.textSmall}>Shipping</Typography>
-                <Typography className={classes.textSmall}>
-                  £{shippingCost}.00
-                </Typography>
-              </Grid>
-              <Divider />
+              <ShippingCost shippingCost={shippingCost} />
               <TotalCost totalCost={totalCost} />
               <PaymentButton />
             </Grid>
