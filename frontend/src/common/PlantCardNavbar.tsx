@@ -5,7 +5,6 @@ import { PlantType } from "../plants/PlantType";
 import useStyles from "./styles/plantCardNavbarStyles";
 
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
   Typography,
