@@ -6,6 +6,7 @@ import { PlantType } from "../plants/PlantType";
 import { totalCostOfBasket } from "../utils/methods";
 import ColorTheme from "../ColorTheme";
 import useStyles from "./styles/summaryCheckoutStyles";
+import DeliveryCostDropdown from "./components/summaryCheckout/DeliveryCostDropdown";
 
 import { Link } from "react-router-dom";
 import {
@@ -84,31 +85,7 @@ export default function SummaryCheckout() {
           <Typography className={classes.text}>{shippingTotal()}</Typography>
         </Grid>
         <ThemeProvider theme={ColorTheme}>
-          <FormControl
-            variant="outlined"
-            fullWidth
-            className={classes.deliverySelect}
-          >
-            <InputLabel id="shipping" className={classes.selectText}>
-              Delivery
-            </InputLabel>
-            <Select
-              className={classes.selectButton}
-              labelId="shipping"
-              id="shipping"
-              value={shipping}
-              onChange={handleChange}
-              label="shipping"
-              fullWidth
-            >
-              <MenuItem className={classes.menuItems} value={7}>
-                Delivery - £7.00
-              </MenuItem>
-              <MenuItem value={0} className={classes.menuItems}>
-                Pickup in Store - FREE
-              </MenuItem>
-            </Select>
-          </FormControl>
+          <DeliveryCostDropdown />
         </ThemeProvider>
         <Divider />
         <Grid
