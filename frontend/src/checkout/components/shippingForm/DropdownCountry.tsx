@@ -2,7 +2,7 @@ import React from "react";
 import useStyles from "../../styles/shippingFormStyles";
 import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
 
-export default function DropdownCountry() {
+export default function MobileDropdownCountry() {
   const classes = useStyles();
   const [country, setCountry] = React.useState("");
 
