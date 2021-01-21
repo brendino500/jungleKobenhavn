@@ -1,41 +1,41 @@
-import React from "react";
-import image from "../assets/zzplant.jpg";
+import React from 'react';
+import image from '../assets/zzplant.jpg';
 // import useStyles from "./styles/homeStyles";
 
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography, Button, Grid } from "@material-ui/core";
+import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import { Container, Typography, Button, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  "@global": {
+  '@global': {
     body: {
       backgroundImage: `url(${image})`,
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center center",
-      backgroundSize: "cover",
-      backgroundAttachment: "fixed",
-      height: "100%",
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      backgroundSize: 'cover',
+      backgroundAttachment: 'fixed',
+      height: '100%',
     },
   },
   title: {
-    fontFamily: "Playfair Display",
-    fontWeight: "bold",
+    fontFamily: 'Playfair Display',
+    fontWeight: 'bold',
     letterSpacing: 9,
     fontSize: 50,
-    marginTop: "10%",
-    color: "#1A3400",
-    [theme.breakpoints.between("xs", "sm")]: {
+    marginTop: '10%',
+    color: '#1A3400',
+    [theme.breakpoints.between('xs', 'sm')]: {
       fontSize: 30,
-      marginTop: "5%",
+      marginTop: '5%',
     },
   },
   button: {
-    fontFamily: "Open Sans",
-    marginTop: "2%",
-    color: "#1A3400",
+    fontFamily: 'Open Sans',
+    marginTop: '2%',
+    color: '#1A3400',
   },
   link: {
-    textDecoration: "none",
+    textDecoration: 'none',
   },
 }));
 export default function Home() {
