@@ -1,10 +1,10 @@
-import React from 'react';
-import image from '../assets/zzplant.jpg';
-// import useStyles from "./styles/homeStyles";
+import React from 'react'
+import image from '../assets/zzplant.jpg'
+// import useStyles from './styles/homeStyles'
 
-import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography, Button, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
+import { Container, Typography, Button, Grid } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -37,9 +37,9 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: 'none',
   },
-}));
+}))
 export default function Home() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Container>
@@ -59,5 +59,5 @@ export default function Home() {
         </Link>
       </Grid>
     </Container>
-  );
+  )
 }
